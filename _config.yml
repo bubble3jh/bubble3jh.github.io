@@ -54,7 +54,7 @@ sections:
     css: 'project'
 
   - id: 'awards'
-    i18n: 'nav.publications'
+    i18n: 'nav.awards'
     name: 'Awards'
     tpl: 'awards.html'
     css: 'publications'
