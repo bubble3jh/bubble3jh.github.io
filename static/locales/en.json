@@ -14,7 +14,7 @@
   },
   "about_me":{
     "about_me": "About Me",
-    "des": "I will complete my master's in spring 2024 and am seeking a lab to begin my PhD in fall 2025. I have focused on AI robustness and causality for interpretability and reliability, as well as domain generalization and adaptation." 
+    "des": "I obtained both my Bachelor's and Master's degrees from the Department of Computer Science and the Department of Artificial Intelligence at the University of Seoul. During my Master's program, I had the privilege of being jointly supervised by Prof. <a href='https://scholar.google.com/citations?user=HWxRii4AAAAJ&hl=ko' target='_blank'><strong>Kyungwoo Song</strong></a> at Yonsei University and Prof. <a href='https://scholar.google.com/citations?user=wc_MQkoAAAAJ&hl=ko' target='_blank'><strong>Jiyeong Jung</strong></a> at the University of Seoul. Starting in Fall 2025, I will be pursuing my PhD in Computer Science at the University of Texas at Dallas. My research has focused on improving the interpretability and reliability of Artificial Intelligence (AI) through AI robustness, causal inference, and domain generalization and adaptation." 
   },
   "skills":{
     "my_skills": "My Skills"
