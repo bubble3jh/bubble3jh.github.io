@@ -2,10 +2,10 @@
     detail: Data Science Researcher @ Yonsei University
     i18n: re
   desc:
-    detail: Yonsei University Institute of Data Science
+    detail: Institute of Data Science, Yonsei University (Inter-collegiate Research Institute)
     i18n: re_des
   date:
-    detail: August. 2025 - Present
+    detail: August 2025 – Present
     i18n: re_date
   job:
     detail: Yonsei University, Seoul, South Korea
@@ -19,7 +19,7 @@
     detail: Department of Artificial Intelligence
     i18n: re_des
   date:
-    detail: March. 2023 - August. 2025
+    detail: March 2023 – August 2025
     i18n: re_date
   job:
     detail: University of Seoul, Seoul, South Korea
@@ -30,10 +30,10 @@
     detail: Visiting Researcher @ Carnegie Mellon University
     i18n: re
   desc:
-    detail: Supported by IITP (Institute for Information & communication Technology Planning & evaluation)
+    detail: Supported by IITP (Institute for Information & Communication Technology Planning & Evaluation)
     i18n: re_des
   date:
-    detail: September. 2024 - February. 2025
+    detail: September 2024 – February 2025
     i18n: re_date
   job:
     detail: Carnegie Mellon University, Pittsburgh, Pennsylvania, United States
@@ -47,13 +47,13 @@
     detail: Machine Learning and Artificial Intelligence Lab
     i18n: re_des
   date:
-    detail: April. 2023 - August. 2025
+    detail: April 2023 – August 2025
     i18n: re_date
   job:
     detail: University of Seoul, Seoul, South Korea
     i18n: re_job
   icon: fa-search
-  
+
 - name:
     detail: Obtained B.S. @ University of Seoul
     i18n: re
@@ -61,7 +61,7 @@
     detail: Department of Computer Science and Engineering
     i18n: re_des
   date:
-    detail: March. 2016 - April. 2023
+    detail: March 2016 – April 2023
     i18n: re_date
   job:
     detail: University of Seoul, Seoul, South Korea
@@ -75,10 +75,9 @@
     detail: Machine Learning and Artificial Intelligence Lab
     i18n: re_des
   date:
-    detail: September. 2021 - April. 2023
+    detail: September 2021 – April 2023
     i18n: re_date
   job:
     detail: University of Seoul, Seoul, South Korea
     i18n: re_job
   icon: fa-search
-
