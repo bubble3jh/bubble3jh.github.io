@@ -1,15 +1,26 @@
 
 - name:
-    detail: Visiting Scholar @ Carnegie Mellon University
+    detail: Obtained M.S. @ University of Seoul
     i18n: re
   desc:
-    detail: From September 2024 to February 2025. 
+    detail: Department of Artificial Intelligence
+    i18n: re_des
+  date:
+    detail: March. 2023 - August. 2025
+    i18n: re_date
+  icon: fa-book
+
+- name:
+    detail: Visiting Researcher @ Carnegie Mellon University
+    i18n: re
+  desc:
+    detail: Supported by IITP (Institute for Information & communication Technology Planning & evaluation)
     i18n: re_des
   date:
     detail: September. 2024 - February. 2025
     i18n: re_date
   job:
-    detail: Pittsburgh, Pennsylvania, United States
+    detail: Carnegie Mellon University, Pittsburgh, Pennsylvania, United States
     i18n: re_job
   icon: fa-search
 
@@ -23,7 +34,7 @@
     detail: April. 2023 - Present
     i18n: re_date
   job:
-    detail: Machine Learning and Artificial Intelligence Lab
+    detail: Machine Learning and Artificial Intelligence Lab, Seoul, South Korea
     i18n: re_job
   icon: fa-search
   
@@ -31,14 +42,11 @@
     detail: Obtained B.S. @ University of Seoul
     i18n: re
   desc:
-    detail: From September 2016 to 2023. 
+    detail: Department of Computer Science and Engineering
     i18n: re_des
   date:
     detail: March. 2016 - April. 2023
     i18n: re_date
-  job:
-    detail: Department of Computer Science and Engineering
-    i18n: re_job
   icon: fa-book
 
 - name:
@@ -51,7 +59,7 @@
     detail: September. 2021 - April. 2023
     i18n: re_date
   job:
-    detail: Machine Learning and Artificial Intelligence Lab
+    detail: Machine Learning and Artificial Intelligence Lab, Seoul, South Korea
     i18n: re_job
   icon: fa-search
 
