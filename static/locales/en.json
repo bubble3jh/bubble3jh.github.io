@@ -14,8 +14,7 @@
   },
   "about_me":{
     "about_me": "About Me",
-    "des": "I obtained both my Bachelor's and Master's degrees from the Department of Computer Science and the Department of Artificial Intelligence at the University of Seoul. During my Master's program, I had the privilege of being jointly supervised by Prof. <a href='https://scholar.google.com/citations?user=HWxRii4AAAAJ&hl=ko' target='_blank'><strong>Kyungwoo Song</strong></a> at Yonsei University and Prof. <a href='https://scholar.google.com/citations?user=wc_MQkoAAAAJ&hl=ko' target='_blank'><strong>Jiyeong Jung</strong></a> at the University of Seoul. Starting in Fall 2026, I will be pursuing my PhD in Computer Science at the University of Texas at Dallas. My research has focused on improving the interpretability and reliability of Artificial Intelligence (AI) through AI robustness, causal inference, and domain generalization and adaptation." 
-  },
+    "des": ""  },
   "skills":{
     "my_skills": "My Skills"
   },
