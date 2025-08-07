@@ -15,3 +15,15 @@
   url: 'https://github.com/bubble3jh/ppg_diffusion'
   img: 'static/img/landing/diff.png'
   desc: 'Address data imbalance in medical datasets by using regressor-guided diffusion models to generate high-quality, diverse PPG signals, significantly enhancing Arterial Blood Pressure predictions.'
+
+- name: 'Causal Discovery in Photoplethysmography Attributes'
+  i18n: 'cbpe'
+  url: 'https://github.com/MLAI-Yonsei/CBPE'
+  img: 'static/img/landing/cbpe.png'
+  desc: 'Uncovering causal relationships among PPG signals and diverse physiological attributes (e.g., race, age) to enable robust and accurate arterial blood pressure (ABP) estimation.'
+
+- name: 'Failure-Aware Causal Modeling through FMEA-Driven LLM Adaptation'
+  i18n: 'fmea'
+  url: 'https://github.com/MLAI-Yonsei/FMEA_LLM'
+  img: 'static/img/landing/fmea.png'
+  desc: 'Leveraging domain-specific technical documents from the automotive industry to pretrain and adapt LLMs for generating accurate, component-targeted FMEA scenarios via causal reasoning.'
