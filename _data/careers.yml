@@ -10,7 +10,7 @@
   job:
     detail: The University of Texas at Dallas, Richardson, Texas, United States
     i18n: re_job
-  icon: fa-search
+  icon: fa-book
 
 - name:
     detail: Data Science Researcher @ Yonsei University
