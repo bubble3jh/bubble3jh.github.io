@@ -272,7 +272,9 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 
 
 /* sections */
-.sec { margin-top: 4rem; padding-top: 2.7rem; border-top: 1px solid var(--line); }
+.sec { margin-top: 3.2rem; padding-top: 2.4rem; border-top: 1px solid var(--line); }
+/* the numbers already end on a hairline, so the first section follows them directly */
+.hero + .sec { margin-top: 0; padding-top: 2.1rem; border-top: 0; }
 .sec__title { display: flex; align-items: baseline; flex-wrap: wrap; gap: .25rem .75rem; font: 640 1.75rem/1.1 var(--font-body); letter-spacing: -.035em; }
 .sec__count, .sec__aside { font: 450 .8rem/1 var(--font-mono); letter-spacing: .01em; color: var(--muted); font-variant-numeric: tabular-nums; }
 
