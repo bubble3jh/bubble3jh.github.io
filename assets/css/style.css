@@ -210,25 +210,13 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 
 /* section links and contact */
 .side__foot { display: grid; gap: 1.05rem; margin-top: auto; }
-.venues[hidden] { display: none; }
-.venues .map__title { margin-bottom: .6rem; }
-.venues__list { display: flex; flex-wrap: wrap; gap: .4rem; }
-.venue-chip { padding: .3rem .6rem; border: 1px solid var(--line); border-radius: .45rem; background: var(--surface); color: var(--muted); font: 450 .74rem/1.2 var(--font-mono); letter-spacing: .005em; cursor: pointer; transition: border-color .15s, color .15s, opacity .25s, background-color .15s; }
-.venue-chip.is-first { color: var(--ink); font-weight: 620; border-color: var(--line-2); }
-.venue-chip:hover { border-color: var(--ink-2); color: var(--ink); }
-.venue-chip.is-dim { opacity: .3; }
-.venues__key { margin-left: .3rem; letter-spacing: .02em; text-transform: none; }
-.venues__key b { color: var(--ink); font-weight: 650; }
 .toc { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .2rem .9rem; padding-top: 1rem; border-top: 1px solid var(--line); font-size: .93rem; }
 .toc a { color: var(--muted); text-decoration: none; padding-block: .1rem; }
 .toc a:hover { color: var(--ink); }
 .toc a[aria-current="true"] { color: var(--ink); box-shadow: 0 1.5px 0 var(--accent); }
 
-.contact { display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "cv soc" "mail mail"; gap: .6rem .5rem; }
-.contact .cv { grid-area: cv; }
-.contact .mail { grid-area: mail; }
-.contact .socials { grid-area: soc; }
-.cv { display: flex; align-items: center; justify-content: space-between; gap: .6rem; white-space: nowrap; padding: .8rem 1.05rem; border-radius: .85rem; background: var(--ink); color: var(--bg); font-size: 1.02rem; font-weight: 560; text-decoration: none; transition: transform .18s var(--ease), background-color .15s; }
+.contact { display: grid; gap: .7rem; }
+.cv { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 1.05rem; border-radius: .85rem; background: var(--ink); color: var(--bg); font-size: 1.02rem; font-weight: 560; text-decoration: none; transition: transform .18s var(--ease), background-color .15s; }
 .cv:hover { background: color-mix(in srgb, var(--ink) 86%, var(--bg)); }
 .cv:hover .cv__meta svg { transform: translateY(2px); }
 .cv__meta { display: inline-flex; align-items: center; gap: .45rem; font: 500 .74rem/1 var(--font-mono); letter-spacing: .04em; opacity: .85; }
@@ -247,10 +235,10 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .copy.is-done .copy__done { opacity: 1; transform: none; }
 .no-js .copy { display: none; }
 
-.socials { display: flex; gap: .5rem; }
-.socials a { width: 3rem; height: 100%; min-height: 2.9rem; display: grid; place-items: center; border: 1px solid var(--line); border-radius: .85rem; background: var(--surface); color: var(--ink-2); font-size: 0; text-decoration: none; transition: border-color .15s, color .15s; }
+.socials { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: .5rem; }
+.socials a { display: flex; align-items: center; justify-content: center; gap: .5rem; padding: .58rem .4rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--surface); color: var(--ink-2); font-size: .94rem; font-weight: 500; text-decoration: none; white-space: nowrap; transition: border-color .15s, color .15s; }
 .socials a:hover { color: var(--ink); border-color: var(--line-2); }
-.socials svg { width: 1.2rem; height: 1.2rem; fill: currentColor; }
+.socials svg { width: 1.05rem; height: 1.05rem; fill: currentColor; flex: none; }
 
 /* ───────── content column ───────── */
 .main {
@@ -277,16 +265,9 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .stat__label { margin-top: .7rem; font-size: .95rem; font-weight: 560; }
 .stat__label a { text-decoration-color: transparent; }
 .stat__label a::before { content: ""; position: absolute; inset: 0; }   /* the whole tile is the link */
-.stat__label a::after {   /* a non-breaking space that carries the arrow, so the arrow never wraps alone */
-  content: "\00a0"; padding-left: .82em; background: currentColor; opacity: .4;
-  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2v8M2.6 6.6 6 10l3.4-3.4'/%3E%3C/svg%3E") right .12em / .62em .62em no-repeat;
-  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' fill='none' stroke='%23000' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 2v8M2.6 6.6 6 10l3.4-3.4'/%3E%3C/svg%3E") right .12em / .62em .62em no-repeat;
-  -webkit-mask-position: right .5em; mask-position: right .5em;
-  transition: opacity .15s;
-}
 .stat:hover .stat__label a { text-decoration-color: currentColor; }
-.stat:hover .stat__label a::after { opacity: .9; }
 .stat__n { transition: color .15s; }
+.stat__plus { margin-left: .04em; color: var(--muted); font-weight: 500; }
 .stat__sub { margin-top: .12rem; color: var(--muted); font-size: .8rem; line-height: 1.4; text-wrap: balance; }
 
 
@@ -437,7 +418,7 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
   .toc { padding-top: .75rem; font-size: .9rem; }
   .contact { gap: .5rem; }
   .cv { padding-block: .66rem; }
-  .socials a { min-height: 2.6rem; }
+  .socials a { padding-block: .46rem; }
   .mail { padding-block: .3rem; }
   .main { padding-top: 2rem; }
 }
@@ -455,7 +436,6 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
   .map__field { aspect-ratio: 100 / 54; }
 }
 @media (min-width: 64.01rem) and (max-height: 42rem) {
-  .venues { display: none; }
 }
 @media (min-width: 64.01rem) and (max-height: 35rem) {
   .side { position: static; height: auto; }
@@ -471,7 +451,7 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
   .id__photo { width: 5.25rem; height: 5.25rem; flex: none; }
   .id__name { font-size: clamp(2.2rem, 8vw, 3rem); }
   .id__role { margin-top: .55rem; font-size: .95rem; }
-  .map, .venues, .side__foot { max-width: 31rem; }
+  .map, .side__foot { max-width: 31rem; }
   .toc { display: none; }
   /* stacked: the panel spans the window and starts with a hairline */
   .main { padding-top: 2.75rem; border-image: linear-gradient(var(--line) 1px, var(--panel) 1px) fill 0 / 0 / 0 100vmax; }
