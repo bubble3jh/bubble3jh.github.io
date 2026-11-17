@@ -281,11 +281,12 @@
     else if (reduceMotion) { autoplay = false; showShift(-1); }
     else {
       /* hold the first scene on its starting frame until the page has loaded, then play it;
-         its own 0.3 s delay puts the first change 0.3 s after load */
+         with its own 0.3 s delay, the first change comes 0.5 s after load */
       showShift(0);
       shiftBox.classList.add('is-waiting');
       var go = function () { shiftBox.classList.remove('is-waiting'); showShift(0); schedule(); };
-      if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+      var later = function () { setTimeout(go, 200); };
+      if (document.readyState === 'complete') later(); else window.addEventListener('load', later);
     }
   }
 

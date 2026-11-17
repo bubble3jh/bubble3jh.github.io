@@ -138,7 +138,7 @@ html[data-lens] { --accent: var(--lens); }
 .side__inner { display: flex; flex-direction: column; justify-content: flex-start; gap: 1.6rem; height: 100%; padding-block: clamp(1.75rem, 6vh, 4rem) clamp(1.25rem, 4vh, 2.25rem); }
 
 .id { position: relative; display: flex; flex-direction: column; gap: 1.3rem; }
-.id__photo { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; background: #fff; box-shadow: 0 0 0 4px var(--surface), 0 0 0 6px var(--ink); }
+.id__photo { width: 5rem; height: 5rem; border-radius: 50%; object-fit: cover; background: #fff; box-shadow: 0 0 0 4px var(--surface), 0 0 0 6.75px var(--ink); }
 .id__name { font: 640 clamp(2.6rem, 3.7vw, 3.15rem)/.98 var(--font-body); letter-spacing: -.045em; }
 .id__role { margin-top: .9rem; color: var(--ink-2); font-size: 1rem; line-height: 1.45; }
 
