@@ -240,12 +240,12 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .ov-arrow { fill: none; stroke: var(--muted); stroke-width: 1.3; stroke-linecap: round; stroke-linejoin: round; }
 .shift__art { display: grid; justify-items: center; gap: .35rem; }
 .shift__art svg { width: 100%; height: auto; display: block; overflow: visible; }
-.shift__phase { position: relative; display: grid; justify-self: start; font: 650 .74rem/1 var(--font-body); letter-spacing: .01em; }
+.shift__phase { position: relative; display: grid; justify-items: start; margin-bottom: .4rem; font: 650 .74rem/1 var(--font-body); letter-spacing: .01em; }
 .shift__phase > span { grid-area: 1 / 1; justify-self: start; padding: .2rem .55rem; border-radius: 999px; }
 .ph-a { color: var(--train); background: color-mix(in srgb, var(--train) 12%, transparent); opacity: 0; }
 .ph-b { color: var(--shift); background: color-mix(in srgb, var(--shift) 12%, transparent); }
 .shift figcaption b { display: block; font-size: .95rem; font-weight: 620; letter-spacing: -.015em; }
-.shift figcaption span { display: block; margin-top: .15rem; color: var(--ink-2); font-size: .84rem; line-height: 1.4; text-wrap: balance; }
+.shift__line { display: block; margin-top: .15rem; color: var(--ink-2); font-size: .84rem; line-height: 1.4; text-wrap: balance; }
 .shifts__tabs { display: flex; justify-content: space-between; gap: .2rem; margin-top: .5rem; }
 .no-js .shifts__tabs { display: none; }
 .shifts__tab { position: relative; padding: .3rem .1rem .4rem; border: 0; background: none; color: var(--muted); font: 500 .74rem/1.2 var(--font-mono); cursor: pointer; white-space: nowrap; }
