@@ -16,8 +16,24 @@
       var current = root.getAttribute('data-theme') ||
         (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
       var next = current === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch (e) {}
+      var apply = function () {
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch (e) {}
+      };
+      if (reduceMotion) { apply(); return; }
+      /* a soft cross-fade between the two themes: the View Transitions API where the browser has it,
+         otherwise a short colour transition on every element */
+      if (document.startViewTransition) {
+        var vt = document.startViewTransition(apply);
+        /* never leave the switch waiting: if the browser has not run the update shortly, apply it directly */
+        setTimeout(function () {
+          if (root.getAttribute('data-theme') !== next) { try { vt.skipTransition(); } catch (e) {} apply(); }
+        }, 400);
+        return;
+      }
+      root.classList.add('theme-fade');
+      apply();
+      setTimeout(function () { root.classList.remove('theme-fade'); }, 500);
     });
   }
 

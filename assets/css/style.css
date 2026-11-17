@@ -113,6 +113,11 @@ a:hover { text-decoration-color: currentColor; }
 :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
 html[data-lens] { --accent: var(--lens); }
 
+/* theme switch: cross-fade (see the toggle in site.js) */
+::view-transition-old(root), ::view-transition-new(root) { animation-duration: .45s; animation-timing-function: ease-in-out; }
+.theme-fade, .theme-fade *, .theme-fade *::before, .theme-fade *::after {
+  transition: background-color .45s ease, color .45s ease, border-color .45s ease, fill .45s ease, stroke .45s ease, box-shadow .45s ease !important;
+}
 .skip { position: absolute; left: 1rem; top: -4rem; z-index: 10; padding: .6rem .9rem; background: var(--ink); color: var(--bg); border-radius: .5rem; text-decoration: none; }
 .skip:focus { top: 1rem; }
 
