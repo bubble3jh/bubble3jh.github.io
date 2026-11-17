@@ -227,33 +227,43 @@
     }
   }
 
-  /* ── "Robust to": play the four kinds of shift once, in order, then stop on the last ── */
+  /* ── "Robust to": play the four kinds of shift once, in order, then rest on an overview of all four ── */
   var shiftBox = document.getElementById('shifts');
   if (shiftBox) {
     var shiftPanes = all('.shift', shiftBox), shiftTabs = all('.shifts__tab', shiftBox);
-    var CYCLE = 3500, shiftAt = 0, shiftTimer = null, shiftHold = false, shiftDone = false;
-    var showShift = function (i) {
-      shiftAt = Math.max(0, Math.min(i, shiftPanes.length - 1));
-      shiftPanes.forEach(function (p, k) { p.classList.remove('is-on'); if (k === shiftAt) { void p.offsetWidth; p.classList.add('is-on'); } });
-      shiftTabs.forEach(function (t, k) {
-        t.classList.remove('is-on'); t.setAttribute('aria-selected', String(k === shiftAt));
-        if (k === shiftAt) { void t.offsetWidth; t.classList.add('is-on'); }
+    var overview = shiftBox.querySelector('.shifts__all');
+    var CYCLE = 3500, shiftAt = 0, shiftTimer = null, shiftHold = false, autoplay = true;
+    var restart = function (el) { el.classList.remove('is-on'); void el.offsetWidth; el.classList.add('is-on'); };
+    var showShift = function (i) {          /* i = -1 shows the overview */
+      shiftAt = i;
+      shiftPanes.forEach(function (p, k) { if (k === i) restart(p); else p.classList.remove('is-on'); });
+      if (overview) { if (i < 0) restart(overview); else overview.classList.remove('is-on'); }
+      shiftTabs.forEach(function (tb, k) {
+        tb.setAttribute('aria-selected', String(k === i));
+        if (k === i) restart(tb); else tb.classList.remove('is-on');
       });
+      shiftBox.classList.toggle('is-overview', i < 0);
     };
-    var stopShifts = function () { clearTimeout(shiftTimer); shiftBox.classList.remove('is-auto'); };
-    var nextShift = function () {
-      stopShifts();
-      if (reduceMotion || shiftDone || shiftHold) return;
-      if (shiftAt >= shiftPanes.length - 1) { shiftDone = true; return; }   /* reached the last one: stay */
-      shiftBox.classList.add('is-auto');
-      shiftTimer = setTimeout(function () { showShift(shiftAt + 1); nextShift(); }, CYCLE);
+    var schedule = function () {
+      clearTimeout(shiftTimer);
+      shiftBox.classList.remove('is-auto');
+      if (shiftHold || shiftAt < 0 || reduceMotion) return;
+      if (autoplay) shiftBox.classList.add('is-auto');
+      shiftTimer = setTimeout(function () {
+        if (autoplay && shiftAt < shiftPanes.length - 1) showShift(shiftAt + 1);
+        else { autoplay = false; showShift(-1); }
+        schedule();
+      }, CYCLE + (autoplay ? 0 : 1000));
     };
-    shiftTabs.forEach(function (t, k) { t.addEventListener('click', function () { shiftDone = true; stopShifts(); showShift(k); }); });
-    shiftBox.addEventListener('mouseenter', function () { shiftHold = true; stopShifts(); });
-    shiftBox.addEventListener('mouseleave', function () { shiftHold = false; if (!shiftDone) { showShift(shiftAt); nextShift(); } });
+    var pick = function (k) { autoplay = false; showShift(k); schedule(); };
+    shiftTabs.forEach(function (tb, k) { tb.addEventListener('click', function () { pick(k); }); });
+    all('.ov-tile', shiftBox).forEach(function (b) { b.addEventListener('click', function () { pick(+b.getAttribute('data-show')); }); });
+    shiftBox.addEventListener('mouseenter', function () { shiftHold = true; schedule(); });
+    shiftBox.addEventListener('mouseleave', function () { shiftHold = false; schedule(); });
     var q = parseInt(param('shift'), 10);
-    showShift(isNaN(q) ? 0 : q);
-    if (param('shift') === null) { shiftBox.classList.add('is-auto'); nextShift(); } else { shiftDone = true; }
+    if (!isNaN(q)) { autoplay = false; showShift(q); }            /* ?shift=k holds one scene (for previews) */
+    else if (reduceMotion) { autoplay = false; showShift(-1); }
+    else { showShift(0); schedule(); }
   }
 
   /* the caption doubles as a readout for the point under the cursor */
