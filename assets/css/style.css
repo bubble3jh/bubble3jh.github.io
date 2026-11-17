@@ -497,7 +497,7 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 }
 @media (min-width: 64.01rem) and (max-height: 66rem) {
   .side__inner { gap: 1.05rem; }
-  .shift { grid-template-columns: 7.3rem minmax(0, 1fr); padding-block: .4rem; }
+  .shift { grid-template-columns: 7rem minmax(0, 1fr); padding-block: .4rem; }
   .shift__art { gap: .25rem; }
   .shifts__tabs { margin-top: .3rem; }
 }

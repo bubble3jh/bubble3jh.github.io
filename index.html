@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=10">
+<link rel="stylesheet" href="assets/css/style.css?v=11">
 <script>
 (function () {
   var d = document.documentElement;
@@ -92,112 +92,75 @@
         <p class="map__title">Robust to</p>
         <svg class="sh-defs" width="0" height="0" aria-hidden="true" focusable="false">
           <defs>
-            <clipPath id="sh-clip"><rect x="3" y="3" width="114" height="74" rx="8"/></clipPath>
-            <radialGradient id="sh-fur" cx=".5" cy=".36" r=".62"><stop offset="0" stop-color="#f0c27c"/><stop offset=".6" stop-color="#d39646"/><stop offset="1" stop-color="#a5692a"/></radialGradient>
-            <linearGradient id="sh-ear" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bb7d34"/><stop offset="1" stop-color="#83501f"/></linearGradient>
-            <radialGradient id="sh-mask" cx=".5" cy=".6" r=".6"><stop offset="0" stop-color="#f6dcaa" stop-opacity=".95"/><stop offset="1" stop-color="#f0c98a" stop-opacity="0"/></radialGradient>
-            <linearGradient id="sh-chest" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e2b46e"/><stop offset="1" stop-color="#f3d7a2"/></linearGradient>
-            <linearGradient id="sh-park" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#bcd6a6"/><stop offset="1" stop-color="#6c955a"/></linearGradient>
-            <filter id="sh-furfx" x="-10%" y="-10%" width="120%" height="120%"><feTurbulence type="fractalNoise" baseFrequency="1.4" numOctaves="2" seed="7" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="1.7" xChannelSelector="R" yChannelSelector="G"/><feGaussianBlur stdDeviation=".25"/></filter>
-            <filter id="sh-bokeh" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="3"/></filter>
-            <filter id="sh-blur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.8"/></filter>
-            <filter id="sh-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="1" seed="4"/><feColorMatrix values="0 0 0 0 .45  0 0 0 0 .45  0 0 0 0 .45  0 0 0 1.4 -.42"/></filter>
+            <clipPath id="sh-clip"><rect x="3" y="3" width="114" height="84" rx="8"/></clipPath>
             <filter id="sh-softblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.4"/></filter>
-            <!-- one golden retriever head; colours, outline and tongue come from custom properties on each use -->
-            <symbol id="sh-dog" viewBox="22 6 76 74">
-              <g style="stroke: var(--lc, none); stroke-width: var(--lw, 0); stroke-linejoin: round; stroke-linecap: round">
-                <path d="M32 80c.6-9.6 6.4-16.2 14.6-18.8l2.4 2.8 2.6-3.2 2.8 3 2.8-3.4 2.8 3.4 2.8-3 2.6 3.2 2.4-2.8C81.6 63.8 87.4 70.4 88 80Z" style="fill: var(--chest, #f3d29a)"/>
-                <path d="M44.6 25.6c-7.8-.6-13.4 4.6-14.6 12.6-1 6.6.4 13 4.4 16.4 1.6 1.4 3.4.6 4.2 1.8 1.4 1.8 4.2.6 5.2-3 1.6-5.6 1.2-15.2 2.6-24.2Z" style="fill: var(--ear, #c0802f)"/>
-                <path d="M75.4 25.6c7.8-.6 13.4 4.6 14.6 12.6 1 6.6-.4 13-4.4 16.4-1.6 1.4-3.4.6-4.2 1.8-1.4 1.8-4.2.6-5.2-3-1.6-5.6-1.2-15.2-2.6-24.2Z" style="fill: var(--ear, #c0802f)"/>
-                <path d="M60 11c12 0 20.8 7.2 21.4 17.8.4 7.6-2.4 12.6-4.4 17.6-2.4 6.6-6.4 16.4-17 16.8-10.6-.4-14.6-10.2-17-16.8-2-5-4.8-10-4.4-17.6C39.2 18.2 48 11 60 11Z" style="fill: var(--fur, #e6a64c)"/>
+            <!-- a cat face drawn in the same flat, thick-outlined style as the dog face -->
+            <symbol id="sh-cat" viewBox="0 0 100 64">
+              <g stroke="#5a2f0a" stroke-width="3.6" stroke-linejoin="round" stroke-linecap="round">
+                <path d="M21 30 17 4l25 12Z M79 30l4-26-25 12Z" style="fill: var(--fur)"/>
+                <ellipse cx="50" cy="38" rx="34" ry="24" style="fill: var(--fur)"/>
               </g>
-              <path d="M60 21.5c3.6 0 5.6 5.4 6.6 11.4.8 5 5 8.6 5 15.4 0 7.6-5.4 13.6-11.6 13.6S48.4 55.9 48.4 48.3c0-6.8 4.2-10.4 5-15.4 1-6 3-11.4 6.6-11.4Z" style="fill: var(--mask, #f4c985)"/>
-              <ellipse cx="60" cy="53" rx="10.6" ry="9" style="fill: var(--snout, #f8dfb3); stroke: var(--lc, none); stroke-width: var(--lw, 0)"/>
-              <path d="M60 50.8v2.6m-7 .4c2.4 3.6 5.6 3.4 7 0 1.4 3.4 4.6 3.6 7 0" style="fill: none; stroke: var(--mouth, #6b4128); stroke-width: 1.1; stroke-linecap: round; stroke-linejoin: round"/>
-              <path d="M57.3 55.6c0 4.4 1.3 6.6 3.1 6.6s3.2-2.2 3.2-6.6c-1.6 1-4.7 1-6.3 0Z" style="fill: var(--tongue, #ef7d8d); opacity: var(--tongue-o, 1)"/>
-              <path d="M54.6 46.2c0-2.3 2.5-3.2 5.4-3.2s5.4.9 5.4 3.2c0 2.5-3 4.6-5.4 4.6s-5.4-2.1-5.4-4.6Z" fill="#1d1714"/>
-              <ellipse cx="58.2" cy="44.6" rx="1.7" ry=".8" fill="#fff" opacity=".45"/>
-              <path d="M47.6 35.6c1-2.5 2.6-3.1 4.1-3 1.7.2 2.9 1.4 3.1 3-1.6 1.5-3.6 1.9-5.1 1.5-.9-.3-1.6-.8-2.1-1.5Z" fill="#2a190f"/>
-              <path d="M72.4 35.6c-1-2.5-2.6-3.1-4.1-3-1.7.2-2.9 1.4-3.1 3 1.6 1.5 3.6 1.9 5.1 1.5.9-.3 1.6-.8 2.1-1.5Z" fill="#2a190f"/>
-              <circle cx="52.6" cy="34.2" r=".8" fill="#fff"/><circle cx="68.6" cy="34.2" r=".8" fill="#fff"/>
-              <path d="M48.4 30.4c1.4-1.3 3.6-1.6 5.2-.6M71.6 30.4c-1.4-1.3-3.6-1.6-5.2-.6" style="fill: none; stroke: var(--brow, #c98a3c); stroke-width: 1.1; stroke-linecap: round"/>
+              <path d="m23.5 22-2-12 11 6.5Z m53 0 2-12-11 6.5Z" fill="#f2a3a8" opacity=".85"/>
+              <ellipse cx="37" cy="35" rx="4.2" ry="5.6" style="fill: var(--eye, #5a2f0a)"/><ellipse cx="63" cy="35" rx="4.2" ry="5.6" style="fill: var(--eye, #5a2f0a)"/>
+              <ellipse cx="37" cy="35" rx="1.4" ry="4" style="fill: var(--pupil, transparent)"/><ellipse cx="63" cy="35" rx="1.4" ry="4" style="fill: var(--pupil, transparent)"/>
+              <path d="M46.5 42h7L50 46Z" fill="#e8798a"/>
+              <path d="M50 46c-1 3.6-5.6 4-7.4 1.4M50 46c1 3.6 5.6 4 7.4 1.4" fill="none" stroke="#5a2f0a" stroke-width="2.4" stroke-linecap="round"/>
+              <path d="M30 44 14 42M30 48l-15 4M70 44l16-2M70 48l15 4" style="stroke: var(--whisker, #5a2f0a)" stroke-width="1.6" stroke-linecap="round"/>
             </symbol>
-            <!-- the same dog as a photo: furry edges on a blurred park, face features kept sharp -->
-            <symbol id="sh-dog-photo" viewBox="0 0 120 80">
-              <rect x="3" y="3" width="114" height="74" fill="url(#sh-park)"/>
-              <g filter="url(#sh-bokeh)" opacity=".7"><circle cx="16" cy="16" r="10" fill="#eef5df"/><circle cx="104" cy="12" r="12" fill="#dcebc6"/><circle cx="106" cy="56" r="9" fill="#93b97c"/><circle cx="12" cy="60" r="11" fill="#86ad70"/></g>
-              <g filter="url(#sh-furfx)"><use href="#sh-dog" x="22" y="6" width="76" height="74" style="--fur:url(#sh-fur);--ear:url(#sh-ear);--mask:url(#sh-mask);--snout:#f1d6a6;--chest:url(#sh-chest);--tongue-o:0;--brow:transparent"/></g>
-              <use href="#sh-dog" x="22" y="6" width="76" height="74" style="--fur:transparent;--ear:transparent;--mask:transparent;--chest:transparent;--snout:#f1d6a6;--tongue-o:0;--brow:transparent"/>
-            </symbol>
-            <symbol id="sh-cat" viewBox="0 0 20 20">
-              <path d="M4 9.5 4.8 2.6l4.6 3.8Z M16 9.5l-.8-6.9-4.6 3.8Z" fill="var(--fur)" stroke="var(--edge, none)" stroke-width=".6" stroke-linejoin="round"/>
-              <circle cx="10" cy="11" r="6.4" fill="var(--fur)" stroke="var(--edge, none)" stroke-width=".6"/>
-              <ellipse cx="7.5" cy="10.4" rx=".9" ry="1.2" fill="var(--eye, #2c3a1e)"/><ellipse cx="12.5" cy="10.4" rx=".9" ry="1.2" fill="var(--eye, #2c3a1e)"/>
-              <path d="m9.1 12.6h1.8l-.9 1.1Z" fill="#e58a9a"/>
-              <path d="M8.6 13.6 4.4 13M8.6 14.2l-4 1.2M11.4 13.6l4.2-.6M11.4 14.2l4 1.2" stroke="var(--whisker, #6b6b6b)" stroke-width=".45" stroke-linecap="round"/>
-            </symbol>
-            <symbol id="sh-car" viewBox="0 0 34 20">
-              <path d="M1 15v-3.4c0-1.6 1-2.6 2.6-2.9L8 7.8l3.6-3.6c.8-.8 1.8-1.2 2.9-1.2h6.6c1.2 0 2.3.5 3 1.4L27 7.8l3.4.9c1.4.4 2.6 1.6 2.6 3.1V15Z" fill="#e5484d"/>
-              <path d="M10.6 7.8 13.6 4.9h4v2.9Zm9-2.9h1.9c.7 0 1.3.3 1.7.8l1.9 2.1h-5.5Z" fill="#d6ecff"/>
-              <circle cx="8.4" cy="15.4" r="3.3" fill="#23262b"/><circle cx="8.4" cy="15.4" r="1.3" fill="#c4c9cf"/>
-              <circle cx="25.6" cy="15.4" r="3.3" fill="#23262b"/><circle cx="25.6" cy="15.4" r="1.3" fill="#c4c9cf"/>
+            <symbol id="sh-car" viewBox="-1 -1 36 22">
+              <path d="M1 15v-3.4c0-1.6 1-2.6 2.6-2.9L8 7.8l3.6-3.6c.8-.8 1.8-1.2 2.9-1.2h6.6c1.2 0 2.3.5 3 1.4L27 7.8l3.4.9c1.4.4 2.6 1.6 2.6 3.1V15Z" fill="#e5484d" stroke="#5a2f0a" stroke-width="1.3" stroke-linejoin="round"/>
+              <path d="M10.6 7.8 13.6 4.9h4v2.9Zm9-2.9h1.9c.7 0 1.3.3 1.7.8l1.9 2.1h-5.5Z" fill="#d6ecff" stroke="#5a2f0a" stroke-width=".8" stroke-linejoin="round"/>
+              <circle cx="8.4" cy="15.4" r="3.3" fill="#2b2622" stroke="#5a2f0a" stroke-width="1"/><circle cx="8.4" cy="15.4" r="1.3" fill="#c4c9cf"/>
+              <circle cx="25.6" cy="15.4" r="3.3" fill="#2b2622" stroke="#5a2f0a" stroke-width="1"/><circle cx="25.6" cy="15.4" r="1.3" fill="#c4c9cf"/>
             </symbol>
           </defs>
         </svg>
         <div class="shifts__card">
           <figure class="shift shift--domain is-on" id="shift-domain" role="tabpanel" aria-labelledby="shift-tab-domain">
             <div class="shift__art">
-              <svg viewBox="0 0 120 80" aria-hidden="true">
+              <svg viewBox="0 0 120 90" aria-hidden="true">
             <g clip-path="url(#sh-clip)">
-              <g class="sh-a"><use href="#sh-dog-photo" width="120" height="80"/></g>
-              <g class="sh-b">
-                <rect x="3" y="3" width="114" height="74" fill="#9fd9c9"/>
-                <circle cx="100" cy="17" r="7" fill="#fff4b8"/>
-                <use href="#sh-dog" x="22" y="6" width="76" height="74" style="--lc:#2b1d14;--lw:1.5;--fur:#f5b146;--ear:#d8862a;--mask:#ffd994;--snout:#fff0cf;--chest:#ffe2a6;--mouth:#2b1d14;--brow:#2b1d14"/>
-              </g>
+              <g class="sh-a"><image href="assets/img/shifts/dog-source.webp" x="3" y="3" width="114" height="84" preserveAspectRatio="xMidYMid slice"/></g>
+              <g class="sh-b"><image href="assets/img/shifts/dog-sketch.webp" x="3" y="3" width="114" height="84" preserveAspectRatio="xMidYMid slice"/></g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="74" rx="8"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="84" rx="8"/>
               </svg>
               <span class="shift__phase" aria-hidden="true"><span class="ph-a">Training</span><span class="ph-b">Shifted</span></span>
             </div>
-            <figcaption><b>Domain shift</b><span>Trained on photos, tested on cartoons.</span></figcaption>
+            <figcaption><b>Domain shift</b><span>Trained on color drawings, tested on pencil sketches.</span></figcaption>
           </figure>
           <figure class="shift shift--corrupt" id="shift-corrupt" role="tabpanel" aria-labelledby="shift-tab-corrupt">
             <div class="shift__art">
-              <svg viewBox="0 0 120 80" aria-hidden="true">
+              <svg viewBox="0 0 120 90" aria-hidden="true">
             <g clip-path="url(#sh-clip)">
-              <use href="#sh-dog-photo" width="120" height="80"/>
-              <g class="sh-b">
-                <use href="#sh-dog-photo" width="120" height="80" filter="url(#sh-blur)"/>
-                <rect x="3" y="3" width="114" height="74" fill="#f4f7fa" opacity=".36"/>
-                <rect x="3" y="3" width="114" height="74" filter="url(#sh-grain)"/>
-              </g>
+              <image href="assets/img/shifts/dog-source.webp" x="3" y="3" width="114" height="84" preserveAspectRatio="xMidYMid slice"/>
+              <g class="sh-b"><image href="assets/img/shifts/dog-noisy.webp" x="3" y="3" width="114" height="84" preserveAspectRatio="xMidYMid slice"/></g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="74" rx="8"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="84" rx="8"/>
               </svg>
               <span class="shift__phase" aria-hidden="true"><span class="ph-a">Training</span><span class="ph-b">Shifted</span></span>
             </div>
-            <figcaption><b>Corruption</b><span>Noise, blur and fog at test time.</span></figcaption>
+            <figcaption><b>Corruption</b><span>Noise and blur at test time.</span></figcaption>
           </figure>
           <figure class="shift shift--label" id="shift-label" role="tabpanel" aria-labelledby="shift-tab-label">
             <div class="shift__art">
-              <svg viewBox="0 0 120 80" aria-hidden="true">
-            <rect class="sh-bg" x="3" y="3" width="114" height="74" rx="8"/>
+              <svg viewBox="0 0 120 90" aria-hidden="true">
+            <rect class="sh-bg" x="3" y="3" width="114" height="84" rx="8"/>
             <g clip-path="url(#sh-clip)">
-              <g class="sl"><use href="#sh-dog" x="5.2" y="14" width="18" height="18" style="--fur:#e2a24a;--ear:#b9772d;--mask:#f2c784;--snout:#f7dcae;--chest:#f1cf95;--tongue-o:0;--brow:transparent"/></g>
-              <g class="sl sl--swap" style="--d:0.000s"><g class="sl-old"><use href="#sh-dog" x="23.5" y="14" width="18" height="18" style="--fur:#8c5a34;--ear:#603a20;--mask:#b27c4f;--snout:#cfa279;--chest:#a8754a;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="32.5" cy="24.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="23.5" y="14" width="18" height="18" style="--fur:#e3893b;--edge:none;--eye:#2c3a1e;--whisker:#8a4d1a"/></g></g>
-              <g class="sl sl--swap" style="--d:0.300s"><g class="sl-old"><use href="#sh-dog" x="41.800000000000004" y="14" width="18" height="18" style="--fur:#34302d;--ear:#1d1a18;--mask:#4a4440;--snout:#6d635b;--chest:#433d39;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="50.800000000000004" cy="24.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="41.800000000000004" y="14" width="18" height="18" style="--fur:#9da3a9;--edge:none;--eye:#2c3a1e;--whisker:#5d6268"/></g></g>
-              <g class="sl sl--swap" style="--d:0.150s"><g class="sl-old"><use href="#sh-dog" x="60.10000000000001" y="14" width="18" height="18" style="--fur:#eadcbf;--ear:#cdb487;--mask:#f6edd9;--snout:#fbf4e4;--chest:#f3e6cc;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="69.10000000000001" cy="24.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="60.10000000000001" y="14" width="18" height="18" style="--fur:#2b2b2e;--edge:none;--eye:#d9c24a;--whisker:#8a8a8a"/></g></g>
-              <g class="sl sl--swap" style="--d:0.450s"><g class="sl-old"><use href="#sh-dog" x="78.4" y="14" width="18" height="18" style="--fur:#e2a24a;--ear:#b9772d;--mask:#f2c784;--snout:#f7dcae;--chest:#f1cf95;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="87.4" cy="24.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="78.4" y="14" width="18" height="18" style="--fur:#f3f0ea;--edge:#c8c2b6;--eye:#5b8fc9;--whisker:#9a9488"/></g></g>
-              <g class="sl"><use href="#sh-cat" x="96.7" y="14" width="18" height="18" style="--fur:#9da3a9;--edge:none;--eye:#2c3a1e;--whisker:#5d6268"/></g>
-              <g class="sl"><use href="#sh-dog" x="5.2" y="45" width="18" height="18" style="--fur:#8c5a34;--ear:#603a20;--mask:#b27c4f;--snout:#cfa279;--chest:#a8754a;--tongue-o:0;--brow:transparent"/></g>
-              <g class="sl sl--swap" style="--d:0.525s"><g class="sl-old"><use href="#sh-dog" x="23.5" y="45" width="18" height="18" style="--fur:#b4b8bd;--ear:#878c92;--mask:#d3d6d9;--snout:#e7e9eb;--chest:#c8cbcf;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="32.5" cy="55.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="23.5" y="45" width="18" height="18" style="--fur:#f3f0ea;--edge:#c8c2b6;--eye:#5b8fc9;--whisker:#9a9488"/></g></g>
-              <g class="sl sl--swap" style="--d:0.075s"><g class="sl-old"><use href="#sh-dog" x="41.800000000000004" y="45" width="18" height="18" style="--fur:#e2a24a;--ear:#b9772d;--mask:#f2c784;--snout:#f7dcae;--chest:#f1cf95;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="50.800000000000004" cy="55.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="41.800000000000004" y="45" width="18" height="18" style="--fur:#e3893b;--edge:none;--eye:#2c3a1e;--whisker:#8a4d1a"/></g></g>
-              <g class="sl sl--swap" style="--d:0.375s"><g class="sl-old"><use href="#sh-dog" x="60.10000000000001" y="45" width="18" height="18" style="--fur:#34302d;--ear:#1d1a18;--mask:#4a4440;--snout:#6d635b;--chest:#433d39;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="69.10000000000001" cy="55.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="60.10000000000001" y="45" width="18" height="18" style="--fur:#9da3a9;--edge:none;--eye:#2c3a1e;--whisker:#5d6268"/></g></g>
-              <g class="sl sl--swap" style="--d:0.225s"><g class="sl-old"><use href="#sh-dog" x="78.4" y="45" width="18" height="18" style="--fur:#eadcbf;--ear:#cdb487;--mask:#f6edd9;--snout:#fbf4e4;--chest:#f3e6cc;--tongue-o:0;--brow:transparent"/></g><circle class="sl-burst" cx="87.4" cy="55.0" r="9"/><g class="sl-new"><use href="#sh-cat" x="78.4" y="45" width="18" height="18" style="--fur:#2b2b2e;--edge:none;--eye:#d9c24a;--whisker:#8a8a8a"/></g></g>
-              <g class="sl"><use href="#sh-cat" x="96.7" y="45" width="18" height="18" style="--fur:#e3893b;--edge:none;--eye:#2c3a1e;--whisker:#8a4d1a"/></g>
+              <g class="sl"><image href="assets/img/shifts/face-golden.webp" x="5.9" y="21.08" width="17" height="10.84"/></g>
+              <g class="sl sl--swap" style="--d:0.000s"><g class="sl-old"><image href="assets/img/shifts/face-red.webp" x="24.1" y="21.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="32.6" cy="27.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="24.1" y="21.06" width="17" height="10.88" style="--fur:#f2a552;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g></g>
+              <g class="sl sl--swap" style="--d:0.300s"><g class="sl-old"><image href="assets/img/shifts/face-choc.webp" x="42.3" y="21.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="50.8" cy="27.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="42.3" y="21.06" width="17" height="10.88" style="--fur:#b9bbc0;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g></g>
+              <g class="sl sl--swap" style="--d:0.150s"><g class="sl-old"><image href="assets/img/shifts/face-cream.webp" x="60.49999999999999" y="21.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="69.0" cy="27.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="60.49999999999999" y="21.06" width="17" height="10.88" style="--fur:#46484e;--eye:#f1d45a;--pupil:#2a2522;--whisker:#d8d2c8"/></g></g>
+              <g class="sl sl--swap" style="--d:0.450s"><g class="sl-old"><image href="assets/img/shifts/face-golden.webp" x="78.7" y="21.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="87.2" cy="27.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="78.7" y="21.06" width="17" height="10.88" style="--fur:#f7f3ec;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g></g>
+              <g class="sl"><use href="#sh-cat" x="96.9" y="21.06" width="17" height="10.88" style="--fur:#b9bbc0;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g>
+              <g class="sl"><image href="assets/img/shifts/face-red.webp" x="5.9" y="57.08" width="17" height="10.84"/></g>
+              <g class="sl sl--swap" style="--d:0.525s"><g class="sl-old"><image href="assets/img/shifts/face-grey.webp" x="24.1" y="57.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="32.6" cy="63.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="24.1" y="57.06" width="17" height="10.88" style="--fur:#f7f3ec;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g></g>
+              <g class="sl sl--swap" style="--d:0.075s"><g class="sl-old"><image href="assets/img/shifts/face-golden.webp" x="42.3" y="57.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="50.8" cy="63.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="42.3" y="57.06" width="17" height="10.88" style="--fur:#f2a552;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g></g>
+              <g class="sl sl--swap" style="--d:0.375s"><g class="sl-old"><image href="assets/img/shifts/face-choc.webp" x="60.49999999999999" y="57.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="69.0" cy="63.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="60.49999999999999" y="57.06" width="17" height="10.88" style="--fur:#b9bbc0;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g></g>
+              <g class="sl sl--swap" style="--d:0.225s"><g class="sl-old"><image href="assets/img/shifts/face-cream.webp" x="78.7" y="57.08" width="17" height="10.84"/></g><circle class="sl-burst" cx="87.2" cy="63.5" r="9"/><g class="sl-new"><use href="#sh-cat" x="78.7" y="57.06" width="17" height="10.88" style="--fur:#46484e;--eye:#f1d45a;--pupil:#2a2522;--whisker:#d8d2c8"/></g></g>
+              <g class="sl"><use href="#sh-cat" x="96.9" y="57.06" width="17" height="10.88" style="--fur:#f2a552;--eye:#5a2f0a;--pupil:transparent;--whisker:#5a2f0a"/></g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="74" rx="8"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="84" rx="8"/>
               </svg>
               <span class="shift__phase" aria-hidden="true"><span class="ph-a">Training</span><span class="ph-b">Shifted</span></span>
             </div>
@@ -205,18 +168,18 @@
           </figure>
           <figure class="shift shift--open" id="shift-open" role="tabpanel" aria-labelledby="shift-tab-open">
             <div class="shift__art">
-              <svg viewBox="0 0 120 80" aria-hidden="true">
-            <rect class="sh-bg" x="3" y="3" width="114" height="74" rx="8"/>
+              <svg viewBox="0 0 120 90" aria-hidden="true">
+            <rect class="sh-bg" x="3" y="3" width="114" height="84" rx="8"/>
             <g clip-path="url(#sh-clip)">
-              <use href="#sh-dog" x="12" y="30" width="24" height="24" style="--fur:#e2a24a;--ear:#b9772d;--mask:#f2c784;--snout:#f7dcae;--chest:#f1cf95;--tongue-o:0;--brow:transparent"/><rect class="sh-box" x="10" y="27" width="28" height="30" rx="2.5"/>
-              <use href="#sh-cat" x="45" y="30" width="24" height="24" style="--fur:#e3893b;--edge:none;--eye:#2c3a1e;--whisker:#8a4d1a"/><rect class="sh-box" x="43" y="27" width="28" height="30" rx="2.5"/>
+              <image href="assets/img/shifts/face-golden.webp" x="10" y="37.53" width="25" height="15.94"/><rect class="sh-box" x="8" y="31" width="29" height="27" rx="2.5"/>
+              <use href="#sh-cat" x="43" y="37.50" width="25" height="16.00" style="--fur:#46484e;--eye:#f1d45a;--pupil:#2a2522;--whisker:#d8d2c8"/><rect class="sh-box" x="41" y="31" width="29" height="27" rx="2.5"/>
               <g class="sh-new">
-                <use href="#sh-car" x="76" y="33" width="34" height="20"/>
-                <rect class="sh-box sh-box--new" x="74" y="27" width="38" height="30" rx="2.5"/>
-                <g class="sh-q"><circle cx="106" cy="23" r="7"/><text x="106" y="26.6">?</text></g>
+                <use href="#sh-car" x="76" y="34" width="34" height="21"/>
+                <rect class="sh-box sh-box--new" x="74" y="29" width="38" height="31" rx="2.5"/>
+                <g class="sh-q"><circle cx="106" cy="25" r="7"/><text x="106" y="28.6">?</text></g>
               </g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="74" rx="8"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="84" rx="8"/>
               </svg>
               <span class="shift__phase" aria-hidden="true"><span class="ph-a">Training</span><span class="ph-b">Shifted</span></span>
             </div>
@@ -646,6 +609,6 @@
   </main>
 </div>
 
-<script src="assets/js/site.js?v=10" defer></script>
+<script src="assets/js/site.js?v=11" defer></script>
 </body>
 </html>
