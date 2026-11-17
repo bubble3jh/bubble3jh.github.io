@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=3">
+<link rel="stylesheet" href="assets/css/style.css?v=4">
 <script>
 (function () {
   var d = document.documentElement;
@@ -49,13 +49,13 @@
 }
 </script>
 </head>
-<body>
+<body id="top">
 <a class="skip" href="#main">Skip to content</a>
 
 <div class="page">
 
   <!-- ───────────── Identity column ───────────── -->
-  <header class="side" id="top">
+  <header class="side">
     <div class="side__inner">
 
       <div class="id">
@@ -133,7 +133,7 @@
     <!-- About -->
     <section class="hero" id="about" aria-labelledby="h-about">
       <h2 class="sr-only" id="h-about">About</h2>
-      <p class="hero__lead">My research focuses on building <em>reliable and robust</em> artificial intelligence systems.</p>
+      <p class="hero__lead">My research focuses on building<br class="br-wide"> <em>reliable and robust</em> artificial intelligence.</p>
       <div class="hero__body">
         <p>I currently study how <em>Vision-Language Models (VLMs)</em> generalize and adapt in open-world, non-stationary, and distributionally shifting environments.</p>
         <p>I am a Ph.D. student in Computer Science at <strong>the University of Texas at Dallas</strong>, advised by Prof. <a href="https://yunhuiguo.github.io/">Yunhui Guo</a>. Prior to my Ph.D., I received my M.S. in Artificial Intelligence and B.S. in Computer Science from <strong>the University of Seoul</strong>. During my M.S., I was advised by Prof. <a href="https://scholar.google.com/citations?user=HWxRii4AAAAJ&amp;hl=en">Kyungwoo Song</a> at <strong>Yonsei University</strong> and Prof. <a href="https://scholar.google.com/citations?user=wc_MQkoAAAAJ&amp;hl=en">Jiyoung Jung</a> at <strong>the University of Seoul</strong>.</p>
@@ -152,14 +152,14 @@
           <dd class="stat__sub">first or co-first author</dd>
         </div>
         <div class="stat">
-          <dd class="stat__n" data-stat="journal">4</dd>
-          <dt class="stat__label"><a href="#publications" data-go="journal">Journal articles</a></dt>
-          <dd class="stat__sub">SCIE, IF up to 8.0</dd>
-        </div>
-        <div class="stat">
           <dd class="stat__n" data-stat="conference">5</dd>
           <dt class="stat__label"><a href="#publications" data-go="conference">Conference papers</a></dt>
           <dd class="stat__sub">UAI, CIKM, ICDM, SAC, IJCAI workshop</dd>
+        </div>
+        <div class="stat">
+          <dd class="stat__n" data-stat="journal">4</dd>
+          <dt class="stat__label"><a href="#publications" data-go="journal">Journal articles</a></dt>
+          <dd class="stat__sub">SCIE, IF up to 8.0</dd>
         </div>
       </dl>
 
@@ -221,7 +221,7 @@
           <button type="button" data-view="type" aria-pressed="false">By type</button>
         </div>
         <button class="toggle" id="first-only" type="button" aria-pressed="false">First author only</button>
-        <p class="controls__note"><b class="me">Jinho Kang</b> is highlighted. <sup>*</sup> equal contribution.</p>
+        <p class="controls__note"><sup>*</sup> equal contribution</p>
       </div>
 
       <div class="pubgroups" id="pub-groups">
@@ -229,13 +229,14 @@
         <div class="pubgroup">
           <h3 class="pubgroup__label pubgroup__label--text">In review</h3>
           <ul class="items">
-            <li class="item pub" id="pub-cama" data-kind="publication" data-themes="robustness" data-short="Preprint" data-year="In review" data-type="preprint" data-rank="1" data-first>
+            <li class="item pub" id="pub-cama" data-kind="publication" data-themes="robustness llm-vlm" data-short="Preprint" data-year="In review" data-type="preprint" data-rank="1" data-first>
               <div class="pub__head"><span class="venue venue--soft">Preprint</span></div>
               <h4 class="item__title">CAMA: Calibrated Anti-Collapse Marginal Alignment for Test-Time Adaptation of Vision–Language Models</h4>
               <p class="item__authors"><b class="me">Jinho Kang</b>, Yunhui Guo</p>
               <p class="item__where">Submitted to AI Top Conference 2027</p>
               <div class="item__foot">
                 <button class="tag" type="button" data-theme="robustness">Robustness</button>
+                <button class="tag" type="button" data-theme="llm-vlm">VLM</button>
               </div>
             </li>
           </ul>
@@ -422,27 +423,31 @@
       <h2 class="sec__title" id="h-background">Background</h2>
       <div class="bg">
         <div class="bg__col">
-          <h3 class="bg__title">Experience</h3>
+          <h3 class="bg__title"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="7.5" width="17" height="12" rx="2"/><path d="M9 7.5V6a1.5 1.5 0 0 1 1.5-1.5h3A1.5 1.5 0 0 1 15 6v1.5M3.5 12.5h17"/></svg>Experience</h3>
           <ol class="tl">
             <li>
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 3.5h5M10.5 3.5v5.2L5.3 17.6A2 2 0 0 0 7 20.5h10a2 2 0 0 0 1.7-2.9l-5.2-8.9V3.5"/><path d="M7.6 14.5h8.8"/></svg></span>
               <p class="tl__when">Aug 2025 – Dec 2025</p>
               <h4 class="tl__title">Associate Researcher</h4>
               <p class="tl__org"><a href="https://mlai.yonsei.ac.kr/">Machine Learning and Artificial Intelligence Lab</a>, Yonsei University</p>
               <p class="tl__note">Seoul, South Korea</p>
             </li>
             <li>
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.4 2.4 3.5 5.3 3.5 8.5s-1.1 6.1-3.5 8.5c-2.4-2.4-3.5-5.3-3.5-8.5s1.1-6.1 3.5-8.5Z"/></svg></span>
               <p class="tl__when">Aug 2024 – Feb 2025</p>
               <h4 class="tl__title">Visiting Scholar</h4>
               <p class="tl__org">School of Computer Science, Carnegie Mellon University</p>
               <p class="tl__note">Pittsburgh, PA, USA. Supported by IITP (Institute for Information &amp; Communication Technology Planning &amp; Evaluation).</p>
             </li>
             <li>
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 3.5h5M10.5 3.5v5.2L5.3 17.6A2 2 0 0 0 7 20.5h10a2 2 0 0 0 1.7-2.9l-5.2-8.9V3.5"/><path d="M7.6 14.5h8.8"/></svg></span>
               <p class="tl__when">Apr 2023 – Aug 2025</p>
               <h4 class="tl__title">Graduate Researcher</h4>
               <p class="tl__org"><a href="https://mlai.yonsei.ac.kr/">Machine Learning and Artificial Intelligence Lab</a>, University of Seoul</p>
               <p class="tl__note">Seoul, South Korea</p>
             </li>
             <li>
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9.5 3.5h5M10.5 3.5v5.2L5.3 17.6A2 2 0 0 0 7 20.5h10a2 2 0 0 0 1.7-2.9l-5.2-8.9V3.5"/><path d="M7.6 14.5h8.8"/></svg></span>
               <p class="tl__when">Sep 2021 – Apr 2023</p>
               <h4 class="tl__title">Undergraduate Researcher</h4>
               <p class="tl__org"><a href="https://mlai.yonsei.ac.kr/">Machine Learning and Artificial Intelligence Lab</a>, University of Seoul</p>
@@ -451,21 +456,24 @@
           </ol>
         </div>
         <div class="bg__col">
-          <h3 class="bg__title">Education</h3>
+          <h3 class="bg__title"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.5 9 12 4.5 21.5 9 12 13.5 2.5 9Z"/><path d="M6.5 11v4.5c1.5 1.4 3.3 2 5.5 2s4-.6 5.5-2V11M21.5 9v5"/></svg>Education</h3>
           <ol class="tl">
             <li class="is-now">
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 9 12 4.5 21.5 9 12 13.5 2.5 9Z"/><path d="M6.5 11v4.5c1.5 1.4 3.3 2 5.5 2s4-.6 5.5-2V11M21.5 9v5"/></svg></span>
               <p class="tl__when">Jan 2026 – Dec 2030 (expected)</p>
               <h4 class="tl__title">Ph.D. in Computer Science</h4>
               <p class="tl__org">The University of Texas at Dallas</p>
               <p class="tl__note">Richardson, TX, USA. Advisor: <a href="https://yunhuiguo.github.io/">Yunhui Guo</a></p>
             </li>
             <li>
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 9 12 4.5 21.5 9 12 13.5 2.5 9Z"/><path d="M6.5 11v4.5c1.5 1.4 3.3 2 5.5 2s4-.6 5.5-2V11M21.5 9v5"/></svg></span>
               <p class="tl__when">Mar 2023 – Aug 2025</p>
               <h4 class="tl__title">M.S. in Artificial Intelligence</h4>
               <p class="tl__org">University of Seoul</p>
               <p class="tl__note">Seoul, South Korea. Advisor: <a href="https://scholar.google.com/citations?user=wc_MQkoAAAAJ&amp;hl=en">Jiyoung Jung</a>. Co-advisor: <a href="https://scholar.google.com/citations?user=HWxRii4AAAAJ&amp;hl=en">Kyungwoo Song</a> (Yonsei University)</p>
             </li>
             <li>
+              <span class="tl__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M2.5 9 12 4.5 21.5 9 12 13.5 2.5 9Z"/><path d="M6.5 11v4.5c1.5 1.4 3.3 2 5.5 2s4-.6 5.5-2V11M21.5 9v5"/></svg></span>
               <p class="tl__when">Mar 2016 – Feb 2023</p>
               <h4 class="tl__title">B.S. in Computer Science</h4>
               <p class="tl__org">University of Seoul</p>
@@ -509,6 +517,6 @@
   </main>
 </div>
 
-<script src="assets/js/site.js?v=3" defer></script>
+<script src="assets/js/site.js?v=4" defer></script>
 </body>
 </html>
