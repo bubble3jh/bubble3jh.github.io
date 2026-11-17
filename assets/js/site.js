@@ -58,6 +58,7 @@
   var clearBtn = document.getElementById('lens-clear');
   var firstBtn = document.getElementById('first-only');
   var dots = [];
+  var chips = [];
   var themeButtons = {};
   var state = { lens: null, view: 'year', firstOnly: false };
 
@@ -227,6 +228,35 @@
     }
   }
 
+  /* ── "Published in": one chip per published paper, in page order (newest first) ── */
+  var venueBox = document.getElementById('venues');
+  var venueList = document.getElementById('venues-list');
+  if (venueBox && venueList) {
+    pubs.filter(function (p) { return p.getAttribute('data-type') !== 'preprint'; }).forEach(function (p) {
+      var li = document.createElement('li');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'venue-chip' + (p.hasAttribute('data-first') ? ' is-first' : '');
+      b.textContent = p.getAttribute('data-short');
+      var t = p.querySelector('.item__title');
+      b.title = t ? t.textContent.trim() : '';
+      var dot = dotsLayer ? dotsLayer.querySelector('[data-for="' + p.id + '"]') : null;
+      var d = dots.filter(function (x) { return x.item === p; })[0];
+      b.addEventListener('mouseenter', function () { if (dot) dot.classList.add('is-linked'); if (d) showTip(d); p.classList.add('is-linked'); });
+      b.addEventListener('mouseleave', function () { if (dot) dot.classList.remove('is-linked'); hideTip(); p.classList.remove('is-linked'); });
+      b.addEventListener('click', function () {
+        if (p.hidden) setFirstOnly(false);
+        p.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+        if (history.replaceState) history.replaceState(null, '', '#' + p.id);
+        flash(p);
+      });
+      li.appendChild(b);
+      venueList.appendChild(li);
+      chips.push({ el: b, item: p });
+    });
+    venueBox.hidden = !chips.length;
+  }
+
   /* the caption doubles as a readout for the point under the cursor */
   function showTip(d) {
     if (!readout || !map) return;
@@ -260,6 +290,7 @@
     }
     items.forEach(function (it) { it.classList.toggle('is-dim', !inLens(it)); });
     dots.forEach(function (d) { d.el.classList.toggle('is-dim', !inLens(d.item) || d.item.hidden); });
+    chips.forEach(function (c) { c.el.classList.toggle('is-dim', !inLens(c.item) || c.item.hidden); });
     all('[data-count]').forEach(function (el) {
       var set = el.getAttribute('data-count') === 'past' ? past : pubs;
       var shown = set.filter(function (it) { return !it.hidden && inLens(it); }).length;

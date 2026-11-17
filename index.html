@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=4">
+<link rel="stylesheet" href="assets/css/style.css?v=5">
 <script>
 (function () {
   var d = document.documentElement;
@@ -64,7 +64,6 @@
           <h1 class="id__name">Jinho Kang</h1>
           <p class="id__role">Ph.D. student in Computer Science<br>The University of Texas at Dallas</p>
         </div>
-        <p class="thesis">Reliable and robust AI under distribution shift.</p>
         <button class="theme" id="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
           <svg class="theme__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
           <svg class="theme__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8 8 0 1 1 9.8 4a6.3 6.3 0 0 0 10.2 10.2Z"/></svg>
@@ -88,19 +87,25 @@
         </p>
       </figure>
 
+      <!-- Filled by site.js from the publication list (preprints left out). -->
+      <div class="venues" id="venues" hidden>
+        <p class="map__title">Published in <span class="venues__key">· <b>bold</b> = first author</span></p>
+        <ul class="venues__list" id="venues-list"></ul>
+      </div>
+
       <div class="side__foot">
         <nav class="toc" aria-label="Sections">
           <a href="#now">Now</a>
           <a href="#publications">Publications</a>
-          <a href="#projects">Projects</a>
           <a href="#background">Background</a>
+          <a href="#projects">Projects</a>
           <a href="#awards">Awards</a>
         </nav>
 
         <div class="contact">
           <a class="cv" href="assets/cv/Jinho_Kang_CV.pdf">
             <span>Curriculum vitae</span>
-            <span class="cv__meta">PDF
+            <span class="cv__meta" aria-label="PDF">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7.5 11 12 15.5 16.5 11M5 19.5h14"/></svg>
             </span>
           </a>
@@ -116,9 +121,9 @@
           <ul class="socials">
             <li><a href="https://scholar.google.com/citations?user=8FaxQowAAAAJ&amp;hl=en" rel="me noopener" aria-label="Google Scholar" title="Google Scholar">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5.242 13.769 0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg>Scholar</a></li>
-            <li><a href="https://github.com/bubble3jh" rel="me noopener">
+            <li><a href="https://github.com/bubble3jh" rel="me noopener" aria-label="GitHub" title="GitHub">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>GitHub</a></li>
-            <li><a href="https://www.linkedin.com/in/jinho-kang-68682a2a7/" rel="me noopener">
+            <li><a href="https://www.linkedin.com/in/jinho-kang-68682a2a7/" rel="me noopener" aria-label="LinkedIn" title="LinkedIn">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>LinkedIn</a></li>
           </ul>
         </div>
@@ -154,7 +159,7 @@
         <div class="stat">
           <dd class="stat__n" data-stat="conference">5</dd>
           <dt class="stat__label"><a href="#publications" data-go="conference">Conference papers</a></dt>
-          <dd class="stat__sub">UAI, CIKM, ICDM, SAC, IJCAI workshop</dd>
+          <dd class="stat__sub">4 conferences, 1 workshop</dd>
         </div>
         <div class="stat">
           <dd class="stat__n" data-stat="journal">4</dd>
@@ -163,16 +168,6 @@
         </div>
       </dl>
 
-      <ul class="highlights">
-        <li><a class="hl hl--award" href="#awards">
-          <span class="hl__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg></span>
-          <span><b>Best Paper Honorable Mention</b><span class="hl__sub">IJCAI Workshop on AI for Time Series Analysis, 2024</span></span>
-        </a></li>
-        <li><a class="hl" href="#background">
-          <span class="hl__icon"><svg class="is-line" viewBox="0 0 24 24" aria-hidden="true"><path d="M3.5 9.5 12 4.5l8.5 5M5.5 10.5v7M10 10.5v7M14 10.5v7M18.5 10.5v7M3.5 19.5h17"/></svg></span>
-          <span><b>Visiting Scholar, Carnegie Mellon University</b><span class="hl__sub">School of Computer Science, 2024–2025</span></span>
-        </a></li>
-      </ul>
     </section>
 
     <!-- Now: ongoing projects -->
@@ -221,7 +216,6 @@
           <button type="button" data-view="type" aria-pressed="false">By type</button>
         </div>
         <button class="toggle" id="first-only" type="button" aria-pressed="false">First author only</button>
-        <p class="controls__note"><sup>*</sup> equal contribution</p>
       </div>
 
       <div class="pubgroups" id="pub-groups">
@@ -359,63 +353,7 @@
         </div>
 
       </div>
-    </section>
-
-    <!-- Past projects -->
-    <section class="sec" id="projects" aria-labelledby="h-projects">
-      <h2 class="sec__title" id="h-projects">Past projects <span class="sec__count" data-count="past"></span></h2>
-      <ul class="cards cards--2">
-        <li class="item card" id="proj-fmea" data-kind="project" data-past data-themes="llm-vlm" data-short="Project, 2025">
-          <div class="card__top"><span class="card__date">Feb 2025 – Aug 2025</span></div>
-          <h3 class="item__title">Failure-Aware Causal Modeling through FMEA-Driven LLM Adaptation</h3>
-          <p class="item__desc">Leveraging domain-specific technical documents from the automotive industry to pretrain and adapt LLMs for generating accurate, component-targeted FMEA scenarios via causal reasoning.</p>
-          <div class="item__foot">
-            <button class="tag" type="button" data-theme="llm-vlm">LLM</button>
-          </div>
-        </li>
-        <li class="item card" id="proj-ppg-causal" data-kind="project" data-past data-themes="causality" data-short="Project, 2024">
-          <div class="card__top"><span class="card__date">May 2024 – Oct 2024</span></div>
-          <h3 class="item__title">Causal Discovery in Photoplethysmography Attributes</h3>
-          <p class="item__desc">Uncovering causal relationships among PPG signals and diverse physiological attributes (e.g., race, age) to enable robust and accurate arterial blood pressure (ABP) estimation.</p>
-          <div class="item__foot">
-            <button class="tag" type="button" data-theme="causality">Causality</button>
-            <a class="lnk" href="https://github.com/MLAI-Yonsei/CBPE">Code</a>
-          </div>
-        </li>
-        <li class="item card" id="proj-aircraft" data-kind="project" data-past data-themes="generative" data-short="Project, 2024">
-          <div class="card__top"><span class="card__date">Feb 2024 – May 2024</span></div>
-          <h3 class="item__title">Conditioned Generation for Aircraft Trajectory Data</h3>
-          <div class="item__foot">
-            <button class="tag" type="button" data-theme="generative">Generative</button>
-          </div>
-        </li>
-        <li class="item card" id="proj-ppg-dg" data-kind="project" data-past data-themes="robustness generative" data-short="Project, 2023–2024">
-          <div class="card__top"><span class="card__date">May 2023 – Feb 2024</span></div>
-          <h3 class="item__title">Domain Generalization via Synthetic Photoplethysmography Data Generation</h3>
-          <p class="item__desc">Address data imbalance in medical datasets by using regressor-guided diffusion models to generate high-quality, diverse PPG signals, significantly enhancing Arterial Blood Pressure predictions.</p>
-          <div class="item__foot">
-            <button class="tag" type="button" data-theme="robustness">Robustness</button>
-            <button class="tag" type="button" data-theme="generative">Generative</button>
-            <a class="lnk" href="https://github.com/bubble3jh/BG-Diff">Code</a>
-          </div>
-        </li>
-        <li class="item card" id="proj-covid" data-kind="project" data-past data-themes="causality" data-short="Project, 2023–2024">
-          <div class="card__top"><span class="card__date">Mar 2023 – Feb 2024</span></div>
-          <h3 class="item__title">Causal Prediction of <span class="nb">COVID-19</span> Infection Cluster Dynamics</h3>
-          <p class="item__desc">Developed a machine learning model using a Transformer to predict the infection spread and duration of coronavirus clusters by embedding and processing both cluster and patient information.</p>
-          <div class="item__foot">
-            <button class="tag" type="button" data-theme="causality">Causality</button>
-            <a class="lnk" href="https://github.com/bubble3jh/CEVT">Code</a>
-          </div>
-        </li>
-        <li class="item card" id="proj-chem" data-kind="project" data-past data-themes="robustness" data-short="Project, 2022–2023">
-          <div class="card__top"><span class="card__date">Jul 2022 – Feb 2023</span></div>
-          <h3 class="item__title">Robust Ensemble Learning for Chemical Graph Data</h3>
-          <div class="item__foot">
-            <button class="tag" type="button" data-theme="robustness">Robustness</button>
-          </div>
-        </li>
-      </ul>
+      <p class="pub__note"><sup>*</sup> equal contribution</p>
     </section>
 
     <!-- Background: experience and education -->
@@ -484,6 +422,63 @@
       </div>
     </section>
 
+    <!-- Past projects -->
+    <section class="sec" id="projects" aria-labelledby="h-projects">
+      <h2 class="sec__title" id="h-projects">Past projects <span class="sec__count" data-count="past"></span></h2>
+      <ul class="cards cards--2">
+        <li class="item card" id="proj-fmea" data-kind="project" data-past data-themes="llm-vlm" data-short="Project, 2025">
+          <div class="card__top"><span class="card__date">Feb 2025 – Aug 2025</span></div>
+          <h3 class="item__title">Failure-Aware Causal Modeling through FMEA-Driven LLM Adaptation</h3>
+          <p class="item__desc">Leveraging domain-specific technical documents from the automotive industry to pretrain and adapt LLMs for generating accurate, component-targeted FMEA scenarios via causal reasoning.</p>
+          <div class="item__foot">
+            <button class="tag" type="button" data-theme="llm-vlm">LLM</button>
+          </div>
+        </li>
+        <li class="item card" id="proj-ppg-causal" data-kind="project" data-past data-themes="causality" data-short="Project, 2024">
+          <div class="card__top"><span class="card__date">May 2024 – Oct 2024</span></div>
+          <h3 class="item__title">Causal Discovery in Photoplethysmography Attributes</h3>
+          <p class="item__desc">Uncovering causal relationships among PPG signals and diverse physiological attributes (e.g., race, age) to enable robust and accurate arterial blood pressure (ABP) estimation.</p>
+          <div class="item__foot">
+            <button class="tag" type="button" data-theme="causality">Causality</button>
+            <a class="lnk" href="https://github.com/MLAI-Yonsei/CBPE">Code</a>
+          </div>
+        </li>
+        <li class="item card" id="proj-aircraft" data-kind="project" data-past data-themes="generative" data-short="Project, 2024">
+          <div class="card__top"><span class="card__date">Feb 2024 – May 2024</span></div>
+          <h3 class="item__title">Conditioned Generation for Aircraft Trajectory Data</h3>
+          <div class="item__foot">
+            <button class="tag" type="button" data-theme="generative">Generative</button>
+          </div>
+        </li>
+        <li class="item card" id="proj-ppg-dg" data-kind="project" data-past data-themes="robustness generative" data-short="Project, 2023–2024">
+          <div class="card__top"><span class="card__date">May 2023 – Feb 2024</span></div>
+          <h3 class="item__title">Domain Generalization via Synthetic Photoplethysmography Data Generation</h3>
+          <p class="item__desc">Address data imbalance in medical datasets by using regressor-guided diffusion models to generate high-quality, diverse PPG signals, significantly enhancing Arterial Blood Pressure predictions.</p>
+          <div class="item__foot">
+            <button class="tag" type="button" data-theme="robustness">Robustness</button>
+            <button class="tag" type="button" data-theme="generative">Generative</button>
+            <a class="lnk" href="https://github.com/bubble3jh/BG-Diff">Code</a>
+          </div>
+        </li>
+        <li class="item card" id="proj-covid" data-kind="project" data-past data-themes="causality" data-short="Project, 2023–2024">
+          <div class="card__top"><span class="card__date">Mar 2023 – Feb 2024</span></div>
+          <h3 class="item__title">Causal Prediction of <span class="nb">COVID-19</span> Infection Cluster Dynamics</h3>
+          <p class="item__desc">Developed a machine learning model using a Transformer to predict the infection spread and duration of coronavirus clusters by embedding and processing both cluster and patient information.</p>
+          <div class="item__foot">
+            <button class="tag" type="button" data-theme="causality">Causality</button>
+            <a class="lnk" href="https://github.com/bubble3jh/CEVT">Code</a>
+          </div>
+        </li>
+        <li class="item card" id="proj-chem" data-kind="project" data-past data-themes="robustness" data-short="Project, 2022–2023">
+          <div class="card__top"><span class="card__date">Jul 2022 – Feb 2023</span></div>
+          <h3 class="item__title">Robust Ensemble Learning for Chemical Graph Data</h3>
+          <div class="item__foot">
+            <button class="tag" type="button" data-theme="robustness">Robustness</button>
+          </div>
+        </li>
+      </ul>
+    </section>
+
     <!-- Awards -->
     <section class="sec" id="awards" aria-labelledby="h-awards">
       <h2 class="sec__title" id="h-awards">Awards and honors</h2>
@@ -517,6 +512,6 @@
   </main>
 </div>
 
-<script src="assets/js/site.js?v=4" defer></script>
+<script src="assets/js/site.js?v=5" defer></script>
 </body>
 </html>
