@@ -199,7 +199,7 @@ html[data-lens] .zone:not(.is-on) { opacity: .3; }
 .map__theme[aria-pressed="true"] { background: color-mix(in srgb, var(--c) 15%, var(--surface)); box-shadow: inset 0 0 0 1px color-mix(in srgb, var(--c) 55%, transparent); color: var(--ink); }
 html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 
-.map__caption { margin-top: .7rem; min-height: 2.6rem; color: var(--muted); font-size: .84rem; line-height: 1.5; text-wrap: pretty; }
+.map__caption { margin-top: .6rem; color: var(--muted); font-size: .84rem; line-height: 1.5; text-wrap: pretty; }
 .map__readout { color: var(--ink); overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; line-clamp: 2; }
 .map__readout b { margin-right: .5rem; color: var(--muted); font: 500 .72rem/1 var(--font-mono); letter-spacing: .01em; }
 .map:not(.is-reading) .map__readout { display: none; }
@@ -207,6 +207,81 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .key { display: inline-block; vertical-align: .02em; margin-inline: .08rem; border-radius: 50%; }
 .key--pub { width: .5rem; height: .5rem; background: var(--ink-2); }
 .key--proj { width: .46rem; height: .46rem; box-shadow: inset 0 0 0 1.5px var(--ink-2); }
+
+/* ── "Robust to": four short animations. The resting style of every part is its END state,
+      so with reduced motion (no animation) each scene simply shows its outcome. ── */
+.shifts { --sh-dur: .8s; --sh-delay: .25s; }
+.shifts .map__title { margin-bottom: .55rem; }
+.sh-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+.shifts__card { position: relative; border: 1px solid var(--line); border-radius: 1rem; background: var(--surface); }
+.shift { display: none; grid-template-columns: 7.4rem minmax(0, 1fr); align-items: center; gap: .3rem .8rem; padding: .4rem .9rem .4rem .35rem; }
+.shift.is-on { display: grid; }
+.no-js .shift:first-child { display: grid; }
+.shift__art { width: 100%; height: auto; display: block; overflow: visible; }
+.shift figcaption b { display: block; font-size: .95rem; font-weight: 620; letter-spacing: -.015em; }
+.shift figcaption span { display: block; margin-top: .15rem; color: var(--ink-2); font-size: .84rem; line-height: 1.4; text-wrap: balance; }
+.shifts__tabs { display: flex; justify-content: space-between; gap: .2rem; margin-top: .5rem; }
+.no-js .shifts__tabs { display: none; }
+.shifts__tab { position: relative; padding: .3rem .1rem .4rem; border: 0; background: none; color: var(--muted); font: 500 .74rem/1.2 var(--font-mono); cursor: pointer; white-space: nowrap; }
+.shifts__tab:hover { color: var(--ink); }
+.shifts__tab.is-on { color: var(--ink); }
+.shifts__tab::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 2px; border-radius: 1px; background: var(--line); }
+.shifts__tab.is-on::after { background: var(--ink); transform-origin: left; }
+.shifts.is-auto .shifts__tab.is-on::after { animation: sh-progress var(--sh-cycle, 2.8s) linear both; }
+@keyframes sh-progress { from { transform: scaleX(0); } to { transform: none; } }
+
+/* art */
+.sh-frame { fill: none; stroke: var(--line-2); stroke-width: 1; }
+.sh-bg { fill: var(--card); }
+.sh-chip rect { fill: #fff; opacity: .9; }
+.sh-chip text { fill: #14181d; font: 600 5.4px/1 var(--font-mono); text-anchor: middle; }
+.sh-tag rect { fill: color-mix(in srgb, var(--robustness) 13%, var(--surface)); }
+.sh-tag path { fill: none; stroke: var(--robustness); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.sh-tag text { fill: var(--robustness); font: 600 6.2px/1 var(--font-mono); }
+.sh-axis { stroke: var(--line-2); stroke-width: .8; }
+.sh-bar { fill: color-mix(in srgb, var(--ink-2) 32%, var(--card)); }
+.sh-est { stroke: var(--robustness); stroke-width: 1.6; stroke-linecap: round; }
+.sh-ico { fill: var(--ink-2); }
+.sh-obj--a { fill: #e07a3f; } .sh-obj--b { fill: #4f8fd6; } .sh-obj--c { fill: #e9b52f; }
+.sh-box { fill: none; stroke: var(--ink-2); stroke-width: 1; }
+.sh-box--new { stroke: var(--llm-vlm); stroke-width: 1.2; stroke-dasharray: 3 2; }
+.sh-lbl { fill: var(--ink-2); font: 600 5px/1 var(--font-mono); }
+.sh-lbl--new { fill: var(--llm-vlm); }
+.sh-a, .sh-b, .sh-tag, .sh-bar, .sh-est, .sh-new { transform-box: fill-box; transform-origin: center; }
+
+/* end states */
+.shift--domain .sh-a, .shift--corrupt .sh-chip.sh-a, .shift--label .sh-chip.sh-a { opacity: 0; }
+.shift--domain g.sh-a:not(.sh-chip) { transform: translateX(-46px); }
+
+/* motion: only in the scene that is on */
+.shift.is-on .sh-a, .shift.is-on .sh-b, .shift.is-on .sh-tag, .shift.is-on .sh-bar, .shift.is-on .sh-est, .shift.is-on .sh-new {
+  animation-duration: var(--sh-dur); animation-delay: var(--sh-delay); animation-timing-function: cubic-bezier(.65, 0, .35, 1); animation-fill-mode: both;
+}
+.shift--domain.is-on g.sh-a:not(.sh-chip) { animation-name: sh-slide-out; }
+.shift--domain.is-on g.sh-b:not(.sh-chip) { animation-name: sh-slide-in; }
+.shift.is-on .sh-chip.sh-a { animation-name: sh-fade-out; }
+.shift.is-on .sh-chip.sh-b { animation-name: sh-fade-in; }
+.shift--corrupt.is-on g.sh-b:not(.sh-chip) { animation-name: sh-fade-in; }
+.shift.is-on .sh-tag { animation-name: sh-pop; animation-duration: .45s; animation-delay: calc(var(--sh-delay) + var(--sh-dur) - .1s); animation-timing-function: ease-out; }
+.shift--label .sh-bar { transform-origin: bottom; }
+.shift--label.is-on .sh-bar1 { animation-name: sh-grow1; }
+.shift--label.is-on .sh-bar3 { animation-name: sh-grow3; }
+.shift--label.is-on .sh-bar2 { animation: none; }
+.shift--label.is-on .sh-est1 { animation-name: sh-est1; animation-delay: calc(var(--sh-delay) + .18s); }
+.shift--label.is-on .sh-est3 { animation-name: sh-est3; animation-delay: calc(var(--sh-delay) + .18s); }
+.shift--label.is-on .sh-est2 { animation: none; }
+.shift--open.is-on .sh-new { animation-name: sh-appear; animation-timing-function: cubic-bezier(.34, 1.56, .64, 1); }
+
+@keyframes sh-slide-out { from { transform: none; opacity: 1; } to { transform: translateX(-46px); opacity: 0; } }
+@keyframes sh-slide-in { from { transform: translateX(46px); opacity: 0; } to { transform: none; opacity: 1; } }
+@keyframes sh-fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes sh-fade-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes sh-pop { 0% { transform: none; } 55% { transform: scale(1.14); } 100% { transform: none; } }
+@keyframes sh-grow1 { from { transform: scaleY(.25); } to { transform: none; } }
+@keyframes sh-grow3 { from { transform: scaleY(4); } to { transform: none; } }
+@keyframes sh-est1 { from { transform: translateY(30px); } to { transform: none; } }
+@keyframes sh-est3 { from { transform: translateY(-30px); } to { transform: none; } }
+@keyframes sh-appear { from { transform: scale(0); opacity: 0; } to { transform: none; opacity: 1; } }
 
 /* section links and contact */
 .side__foot { display: grid; gap: 1.05rem; margin-top: auto; }
@@ -408,6 +483,11 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .foot a:hover { color: var(--ink); }
 
 /* ───────── short viewports: keep the identity column on one screen ───────── */
+@media (min-width: 64.01rem) and (max-height: 72rem) {
+  .map__caption { display: none; }
+  .map__field { aspect-ratio: 100 / 62; }
+  .side__inner { gap: 1.3rem; }
+}
 @media (min-width: 64.01rem) and (max-height: 62rem) {
   .side__inner { padding-block: 2rem 1.3rem; gap: 1.2rem; }
   .id { gap: 1rem; }
@@ -434,6 +514,7 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
   .main { padding-top: 1.6rem; }
 }
 @media (min-width: 64.01rem) and (max-height: 48rem) {
+  .shifts { display: none; }
   .toc { display: none; }
   .map__field { aspect-ratio: 100 / 54; }
 }
@@ -453,7 +534,7 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
   .id__photo { width: 5.25rem; height: 5.25rem; flex: none; }
   .id__name { font-size: clamp(2.2rem, 8vw, 3rem); }
   .id__role { margin-top: .55rem; font-size: .95rem; }
-  .map, .side__foot { max-width: 31rem; }
+  .map, .shifts, .side__foot { max-width: 31rem; }
   .toc { display: none; }
   /* stacked: the panel spans the window and starts with a hairline */
   .main { padding-top: 2.75rem; border-image: linear-gradient(var(--line) 1px, var(--panel) 1px) fill 0 / 0 / 0 100vmax; }

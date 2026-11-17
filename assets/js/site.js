@@ -227,6 +227,36 @@
     }
   }
 
+  /* ── "Robust to": show one kind of shift at a time and replay its animation ── */
+  var shiftBox = document.getElementById('shifts');
+  if (shiftBox) {
+    var shiftPanes = all('.shift', shiftBox), shiftTabs = all('.shifts__tab', shiftBox);
+    var CYCLE = 2800, shiftAt = 0, shiftTimer = null, shiftHold = false;
+    shiftBox.style.setProperty('--sh-cycle', CYCLE + 'ms');
+    var showShift = function (i) {
+      shiftAt = (i + shiftPanes.length) % shiftPanes.length;
+      shiftPanes.forEach(function (p, k) { p.classList.remove('is-on'); if (k === shiftAt) { void p.offsetWidth; p.classList.add('is-on'); } });
+      shiftTabs.forEach(function (t, k) {
+        t.classList.remove('is-on'); t.setAttribute('aria-selected', String(k === shiftAt));
+        if (k === shiftAt) { void t.offsetWidth; t.classList.add('is-on'); }
+      });
+    };
+    var runShifts = function () {
+      clearInterval(shiftTimer);
+      if (reduceMotion || shiftHold) { shiftBox.classList.remove('is-auto'); return; }
+      shiftBox.classList.add('is-auto');
+      shiftTimer = setInterval(function () { showShift(shiftAt + 1); }, CYCLE);
+    };
+    shiftTabs.forEach(function (t, k) { t.addEventListener('click', function () { showShift(k); runShifts(); }); });
+    shiftBox.addEventListener('mouseenter', function () { shiftHold = true; runShifts(); });
+    shiftBox.addEventListener('mouseleave', function () { shiftHold = false; showShift(shiftAt); runShifts(); });
+    shiftBox.addEventListener('focusin', function () { shiftHold = true; runShifts(); });
+    shiftBox.addEventListener('focusout', function () { shiftHold = false; runShifts(); });
+    var q = parseInt(param('shift'), 10);
+    showShift(isNaN(q) ? 0 : q);
+    if (param('shift') === null) runShifts();
+  }
+
   /* the caption doubles as a readout for the point under the cursor */
   function showTip(d) {
     if (!readout || !map) return;

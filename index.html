@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=7">
+<link rel="stylesheet" href="assets/css/style.css?v=8">
 <script>
 (function () {
   var d = document.documentElement;
@@ -86,6 +86,109 @@
           <span class="map__readout" id="map-readout" aria-hidden="true"></span>
         </p>
       </figure>
+
+      <!-- Kinds of robustness: one short animation each, cycled by site.js. -->
+      <section class="shifts" id="shifts" aria-label="Kinds of distribution shift I work on">
+        <p class="map__title">Robust to</p>
+        <svg class="sh-defs" width="0" height="0" aria-hidden="true" focusable="false">
+          <defs>
+            <linearGradient id="sh-sky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a9cdee"/><stop offset="1" stop-color="#eef4fa"/></linearGradient>
+            <radialGradient id="sh-sun"><stop offset="0" stop-color="#fffbe6"/><stop offset=".55" stop-color="#ffd978"/><stop offset="1" stop-color="#ffd978" stop-opacity="0"/></radialGradient>
+            <linearGradient id="sh-mtn" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#8d9ba6"/><stop offset="1" stop-color="#5b6d5e"/></linearGradient>
+            <clipPath id="sh-clip"><rect x="14" y="6" width="92" height="62" rx="7"/></clipPath>
+            <filter id="sh-blur" x="-10%" y="-10%" width="120%" height="120%"><feGaussianBlur stdDeviation="1.7"/></filter>
+            <filter id="sh-grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="1.3" numOctaves="1" seed="4"/><feColorMatrix values="0 0 0 0 .45  0 0 0 0 .45  0 0 0 0 .45  0 0 0 1.4 -.45"/></filter>
+            <symbol id="sh-photo" viewBox="0 0 120 90">
+              <rect x="14" y="6" width="92" height="62" fill="url(#sh-sky)"/>
+              <circle cx="84" cy="22" r="9" fill="url(#sh-sun)"/>
+              <path d="M14 68 40 34l14 16 16-22 36 40Z" fill="url(#sh-mtn)"/>
+              <path d="M14 68h92v-7c-24-6-58-4-92 1Z" fill="#6f8f60" opacity=".8"/>
+            </symbol>
+          </defs>
+        </svg>
+        <div class="shifts__card">
+          <figure class="shift shift--domain is-on" id="shift-domain" role="tabpanel" aria-labelledby="shift-tab-domain">
+            <svg class="shift__art" viewBox="0 0 120 90" aria-hidden="true">
+            <g clip-path="url(#sh-clip)">
+              <g class="sh-a"><use href="#sh-photo"/></g>
+              <g class="sh-b sh-toon">
+                <rect x="14" y="6" width="92" height="62" fill="#8fd0ff"/>
+                <g stroke="#14181d" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round">
+                  <path d="M84 11.5v-3M84 32.5v3M73.5 22h-3M94.5 22h3M76.6 14.6l-2.1-2.1M91.4 14.6l2.1-2.1M76.6 29.4l-2.1 2.1M91.4 29.4l2.1 2.1" fill="none"/>
+                  <circle cx="84" cy="22" r="6" fill="#ffd23f"/>
+                  <path d="M14 69 40 34l14 16 16-22 37 41Z" fill="#5cb96c"/>
+                  <path d="m65 34.4 5-6.4 5.2 6.8-2.6-1.3-2.4 2.2-2.4-2.4Z" fill="#fff"/>
+                </g>
+              </g>
+              <g class="sh-chip sh-a"><rect x="18" y="10" width="24" height="9" rx="4.5"/><text x="30.0" y="16.4">photo</text></g>
+              <g class="sh-chip sh-b"><rect x="18" y="10" width="30" height="9" rx="4.5"/><text x="33.0" y="16.4">cartoon</text></g>
+            </g>
+            <rect class="sh-frame" x="14" y="6" width="92" height="62" rx="7"/>
+            <g class="sh-tag"><rect x="36" y="73" width="48" height="12" rx="6"/><path d="M42 79.2l1.8 1.8 3.4-3.6"/><text x="50" y="81.3">mountain</text></g>
+            </svg>
+            <figcaption><b>Domain shift</b><span>Trained on photos, tested on cartoons.</span></figcaption>
+          </figure>
+          <figure class="shift shift--corrupt" id="shift-corrupt" role="tabpanel" aria-labelledby="shift-tab-corrupt">
+            <svg class="shift__art" viewBox="0 0 120 90" aria-hidden="true">
+            <g clip-path="url(#sh-clip)">
+              <use href="#sh-photo"/>
+              <g class="sh-b">
+                <use href="#sh-photo" filter="url(#sh-blur)"/>
+                <rect x="14" y="6" width="92" height="62" fill="#f4f7fa" opacity=".38"/>
+                <rect x="14" y="6" width="92" height="62" filter="url(#sh-grain)"/>
+              </g>
+              <g class="sh-chip sh-a"><rect x="18" y="10" width="24" height="9" rx="4.5"/><text x="30.0" y="16.4">clean</text></g>
+              <g class="sh-chip sh-b"><rect x="18" y="10" width="26" height="9" rx="4.5"/><text x="31.0" y="16.4">noisy</text></g>
+            </g>
+            <rect class="sh-frame" x="14" y="6" width="92" height="62" rx="7"/>
+            <g class="sh-tag"><rect x="36" y="73" width="48" height="12" rx="6"/><path d="M42 79.2l1.8 1.8 3.4-3.6"/><text x="50" y="81.3">mountain</text></g>
+            </svg>
+            <figcaption><b>Corruption</b><span>Noise, blur and fog at test time.</span></figcaption>
+          </figure>
+          <figure class="shift shift--label" id="shift-label" role="tabpanel" aria-labelledby="shift-tab-label">
+            <svg class="shift__art" viewBox="0 0 120 90" aria-hidden="true">
+            <rect class="sh-bg" x="14" y="6" width="92" height="62" rx="7"/>
+            <g clip-path="url(#sh-clip)">
+              <path class="sh-axis" d="M28 58h64"/>
+              <rect class="sh-bar sh-bar1" x="32" y="18" width="12" height="40" rx="1.5"/>
+              <rect class="sh-bar sh-bar2" x="54" y="36" width="12" height="22" rx="1.5"/>
+              <rect class="sh-bar sh-bar3" x="76" y="48" width="12" height="10" rx="1.5"/>
+              <path class="sh-est sh-est1" d="M30 18h16"/>
+              <path class="sh-est sh-est2" d="M52 36h16"/>
+              <path class="sh-est sh-est3" d="M74 48h16"/>
+              <circle class="sh-ico" cx="38" cy="63" r="2.2"/><path class="sh-ico" d="m60 60.8 2.4 4.2h-4.8Z"/><rect class="sh-ico" x="80" y="61" width="4" height="4"/>
+              <g class="sh-chip sh-a"><rect x="18" y="10" width="22" height="9" rx="4.5"/><text x="29.0" y="16.4">train</text></g>
+              <g class="sh-chip sh-b"><rect x="18" y="10" width="20" height="9" rx="4.5"/><text x="28.0" y="16.4">test</text></g>
+            </g>
+            <rect class="sh-frame" x="14" y="6" width="92" height="62" rx="7"/>
+            <g class="sh-tag"><rect x="30" y="73" width="60" height="12" rx="6"/><path d="M36 79.2l1.8 1.8 3.4-3.6"/><text x="44" y="81.3">estimate tracks</text></g>
+            </svg>
+            <figcaption><b>Label shift</b><span>The class mix changes after training.</span></figcaption>
+          </figure>
+          <figure class="shift shift--open" id="shift-open" role="tabpanel" aria-labelledby="shift-tab-open">
+            <svg class="shift__art" viewBox="0 0 120 90" aria-hidden="true">
+            <rect class="sh-bg" x="14" y="6" width="92" height="62" rx="7"/>
+            <g clip-path="url(#sh-clip)">
+              <circle class="sh-obj sh-obj--a" cx="34" cy="44" r="7"/>
+              <rect class="sh-box" x="24" y="34" width="20" height="20" rx="2"/>
+              <text class="sh-lbl" x="24" y="31.5">cup</text>
+              <rect class="sh-obj sh-obj--b" x="51" y="38" width="13" height="13" rx="1.5"/>
+              <rect class="sh-box" x="48" y="35" width="19" height="19" rx="2"/>
+              <text class="sh-lbl" x="48" y="32.5">box</text>
+              <g class="sh-new">
+                <path class="sh-obj sh-obj--c" d="m86 35.5 2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8Z"/>
+                <rect class="sh-box sh-box--new" x="74" y="31" width="24" height="24" rx="2"/>
+                <text class="sh-lbl sh-lbl--new" x="74" y="28.5">unknown?</text>
+              </g>
+            </g>
+            <rect class="sh-frame" x="14" y="6" width="92" height="62" rx="7"/>
+            <g class="sh-tag"><rect x="32" y="73" width="56" height="12" rx="6"/><path d="M38 79.2l1.8 1.8 3.4-3.6"/><text x="46" y="81.3">flagged as new</text></g>
+            </svg>
+            <figcaption><b>New classes</b><span>Objects never seen in training.</span></figcaption>
+          </figure>
+        </div>
+        <div class="shifts__tabs" role="tablist" aria-label="Kinds of shift"><button class="shifts__tab is-on" type="button" role="tab" aria-selected="true" aria-controls="shift-domain" id="shift-tab-domain">Domain shift</button><button class="shifts__tab" type="button" role="tab" aria-selected="false" aria-controls="shift-corrupt" id="shift-tab-corrupt">Corruption</button><button class="shifts__tab" type="button" role="tab" aria-selected="false" aria-controls="shift-label" id="shift-tab-label">Label shift</button><button class="shifts__tab" type="button" role="tab" aria-selected="false" aria-controls="shift-open" id="shift-tab-open">New classes</button></div>
+      </section>
 
       <div class="side__foot">
         <nav class="toc" aria-label="Sections">
@@ -506,6 +609,6 @@
   </main>
 </div>
 
-<script src="assets/js/site.js?v=7" defer></script>
+<script src="assets/js/site.js?v=8" defer></script>
 </body>
 </html>
