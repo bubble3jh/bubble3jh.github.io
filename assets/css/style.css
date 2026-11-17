@@ -256,7 +256,7 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 @keyframes sh-progress { from { transform: scaleX(0); } to { transform: none; } }
 
 /* art */
-.sh-frame { fill: none; stroke: var(--shift); stroke-width: 2; }
+.sh-frame { fill: none; stroke: var(--shift); stroke-width: 2.6; }
 .sh-bg { fill: var(--card); }
 .sh-box { fill: none; stroke: var(--ink-2); stroke-width: 1; opacity: .7; }
 .sh-box--new { stroke: var(--shift); stroke-width: 1.4; stroke-dasharray: 3.2 2.2; opacity: 1; }
@@ -279,8 +279,11 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .shift--label.is-on .sl-old { animation: sh-pop-out .32s calc(var(--sh-delay) + var(--d)) ease-in both; }
 .shift--label.is-on .sl-burst { animation: sh-burst .45s calc(var(--sh-delay) + var(--d) + .22s) ease-out both; }
 .shift--label.is-on .sl-new { animation: sh-pop-in .42s calc(var(--sh-delay) + var(--d) + .26s) cubic-bezier(.34, 1.7, .64, 1) both; }
+/* the two known classes start in the middle and make room as the car arrives */
+.shift--open.is-on .sh-row { animation: sh-rise .6s calc(var(--sh-delay) + .25s) cubic-bezier(.45, 0, .25, 1) both; }
 .shift--open.is-on .sh-new { animation: sh-pop-in .55s calc(var(--sh-delay) + .35s) cubic-bezier(.34, 1.7, .64, 1) both; }
 
+@keyframes sh-rise { from { transform: translateY(26px); } to { transform: none; } }
 @keyframes sh-frame { from { stroke: var(--train); } to { stroke: var(--shift); } }
 @keyframes sh-slide-out { from { transform: none; opacity: 1; } to { transform: translateX(-40px); opacity: 0; } }
 @keyframes sh-slide-in { from { transform: translateX(40px); opacity: 0; } to { transform: none; opacity: 1; } }

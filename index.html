@@ -18,7 +18,7 @@
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="assets/css/style.css?v=12">
+<link rel="stylesheet" href="assets/css/style.css?v=13">
 <script>
 (function () {
   var d = document.documentElement;
@@ -92,7 +92,7 @@
         <p class="map__title">Robust to</p>
         <svg class="sh-defs" width="0" height="0" aria-hidden="true" focusable="false">
           <defs>
-            <clipPath id="sh-clip"><rect x="3" y="3" width="114" height="114" rx="10"/></clipPath>
+            <clipPath id="sh-clip"><rect x="3" y="3" width="114" height="114" rx="11"/></clipPath>
             <filter id="sh-softblur" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1.4"/></filter>
           </defs>
         </svg>
@@ -102,10 +102,10 @@
               <span class="shift__phase" aria-hidden="true"><span class="ph-a">Training</span><span class="ph-b">Shifted</span></span>
               <svg viewBox="0 0 120 120" aria-hidden="true">
             <g clip-path="url(#sh-clip)">
-              <g class="sh-a"><image href="assets/img/shifts/dog-source.webp" x="3" y="3" width="114" height="114" preserveAspectRatio="xMidYMid slice"/></g>
-              <g class="sh-b"><image href="assets/img/shifts/dog-sketch.webp" x="3" y="3" width="114" height="114" preserveAspectRatio="xMidYMid slice"/></g>
+              <g class="sh-a"><image href="assets/img/shifts/dog-source.webp" x="1" y="1" width="118" height="118" preserveAspectRatio="xMidYMid slice"/></g>
+              <g class="sh-b"><image href="assets/img/shifts/dog-sketch.webp" x="1" y="1" width="118" height="118" preserveAspectRatio="xMidYMid slice"/></g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="10"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="11"/>
               </svg>
             </div>
             <figcaption><b>Domain shift</b><span>Trained on color drawings, tested on pencil sketches.</span></figcaption>
@@ -115,10 +115,10 @@
               <span class="shift__phase" aria-hidden="true"><span class="ph-a">Training</span><span class="ph-b">Shifted</span></span>
               <svg viewBox="0 0 120 120" aria-hidden="true">
             <g clip-path="url(#sh-clip)">
-              <image href="assets/img/shifts/dog-source.webp" x="3" y="3" width="114" height="114" preserveAspectRatio="xMidYMid slice"/>
-              <g class="sh-b"><image href="assets/img/shifts/dog-noisy.webp" x="3" y="3" width="114" height="114" preserveAspectRatio="xMidYMid slice"/></g>
+              <image href="assets/img/shifts/dog-source.webp" x="1" y="1" width="118" height="118" preserveAspectRatio="xMidYMid slice"/>
+              <g class="sh-b"><image href="assets/img/shifts/dog-noisy.webp" x="1" y="1" width="118" height="118" preserveAspectRatio="xMidYMid slice"/></g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="10"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="11"/>
               </svg>
             </div>
             <figcaption><b>Corruption</b><span>Noise and blur at test time.</span></figcaption>
@@ -139,7 +139,7 @@
               <g class="sl"><image href="assets/img/shifts/face-red.webp" x="42" y="85.16" width="34" height="21.67"/></g>
               <g class="sl"><image href="assets/img/shifts/cat-tabby.webp" x="81.40" y="83.51" width="27.20" height="24.98"/></g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="10"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="11"/>
               </svg>
             </div>
             <figcaption><b>Label shift</b><span>The class mix changes after training.</span></figcaption>
@@ -150,15 +150,17 @@
               <svg viewBox="0 0 120 120" aria-hidden="true">
             <rect class="sh-bg" x="3" y="3" width="114" height="114" rx="10"/>
             <g clip-path="url(#sh-clip)">
-              <image href="assets/img/shifts/face-golden.webp" x="12" y="21.25" width="40" height="25.50"/><rect class="sh-box" x="10" y="12" width="44" height="44" rx="3"/>
-              <image href="assets/img/shifts/cat-grey.webp" x="70.00" y="19.30" width="32.00" height="29.39"/><rect class="sh-box" x="64" y="12" width="44" height="44" rx="3"/>
+              <g class="sh-row">
+                <image href="assets/img/shifts/face-golden.webp" x="12" y="21.25" width="40" height="25.50"/><rect class="sh-box" x="10" y="12" width="44" height="44" rx="3"/>
+                <image href="assets/img/shifts/cat-grey.webp" x="70.00" y="19.30" width="32.00" height="29.39"/><rect class="sh-box" x="64" y="12" width="44" height="44" rx="3"/>
+              </g>
               <g class="sh-new">
                 <image href="assets/img/shifts/car.webp" x="40" y="68" width="40" height="33"/>
                 <rect class="sh-box sh-box--new" x="33" y="63" width="54" height="44" rx="3"/>
                 <g class="sh-q"><circle cx="86" cy="64" r="8"/><text x="86" y="68.2">?</text></g>
               </g>
             </g>
-                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="10"/>
+                <rect class="sh-frame" x="3" y="3" width="114" height="114" rx="11"/>
               </svg>
             </div>
             <figcaption><b>New classes</b><span>Objects never seen in training.</span></figcaption>
@@ -587,6 +589,6 @@
   </main>
 </div>
 
-<script src="assets/js/site.js?v=12" defer></script>
+<script src="assets/js/site.js?v=13" defer></script>
 </body>
 </html>
