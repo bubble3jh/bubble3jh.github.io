@@ -279,7 +279,14 @@
     var q = parseInt(param('shift'), 10);
     if (!isNaN(q)) { autoplay = false; showShift(q); }            /* ?shift=k holds one scene (for previews) */
     else if (reduceMotion) { autoplay = false; showShift(-1); }
-    else { showShift(0); schedule(); }
+    else {
+      /* hold the first scene on its starting frame until the page has loaded, then play it;
+         its own 0.3 s delay puts the first change 0.3 s after load */
+      showShift(0);
+      shiftBox.classList.add('is-waiting');
+      var go = function () { shiftBox.classList.remove('is-waiting'); showShift(0); schedule(); };
+      if (document.readyState === 'complete') go(); else window.addEventListener('load', go);
+    }
   }
 
   /* the caption doubles as a readout for the point under the cursor */

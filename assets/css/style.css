@@ -260,6 +260,8 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .shifts.is-auto .shifts__tab.is-on::after { animation: sh-progress var(--sh-cycle) linear both; }
 @keyframes sh-progress { from { transform: scaleX(0); } to { transform: none; } }
 
+.shifts.is-waiting .shift.is-on, .shifts.is-waiting .shift.is-on *, .shifts.is-waiting .shifts__tab::after { animation-play-state: paused !important; }
+
 /* art */
 .sh-frame { fill: none; stroke: var(--shift); stroke-width: 2.6; }
 .sh-bg { fill: var(--card); }
