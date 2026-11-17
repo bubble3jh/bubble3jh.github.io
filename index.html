@@ -1,91 +1,478 @@
----
-layout: blog
-title: index
-permalink: /
----
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Jinho Kang</title>
+<meta name="description" content="Jinho Kang is a Ph.D. student in Computer Science at the University of Texas at Dallas, working on reliable and robust AI: test-time adaptation, vision-language models, generative models, and causality.">
+<meta name="author" content="Jinho Kang">
+<link rel="canonical" href="https://bubble3jh.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Jinho Kang">
+<meta property="og:description" content="Ph.D. student in Computer Science at the University of Texas at Dallas. Reliable and robust AI under distribution shift.">
+<meta property="og:url" content="https://bubble3jh.github.io/">
+<meta property="og:image" content="https://bubble3jh.github.io/assets/img/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F6F7F9" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0C0F13" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preload" href="assets/fonts/geist-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/instrument-serif-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+(function () {
+  var d = document.documentElement;
+  d.classList.remove('no-js'); d.classList.add('js');
+  try {
+    var q = new URLSearchParams(location.search).get('theme');
+    var t = q || localStorage.getItem('theme');
+    if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t);
+  } catch (e) {}
+})();
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Jinho Kang",
+  "url": "https://bubble3jh.github.io/",
+  "image": "https://bubble3jh.github.io/assets/img/jinho-kang.jpg",
+  "jobTitle": "Ph.D. student in Computer Science",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "The University of Texas at Dallas" },
+  "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of Seoul" },
+  "email": "mailto:jinho.kang@utdallas.edu",
+  "sameAs": [
+    "https://scholar.google.com/citations?user=8FaxQowAAAAJ",
+    "https://github.com/bubble3jh",
+    "https://www.linkedin.com/in/jinho-kang-68682a2a7/"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
 
-<div class="navbar-wrapper">
-    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-        <div class="container">
-            <div class="navbar-header page-scroll">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#page-top" id="i18_title"><span data-i18n="website.title">{{ site.title }}</span></a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right" id="i18_navbar">
-                {% for section in site.sections %}
-                    <li>
-                      <a class="page-scroll" href="#{{ section.id }}">
-                        <span data-i18n="{{ section.i18n }}">{{ section.name }}</span>
-                      </a>
-                    </li>
-                {% endfor %}
+<div class="page">
 
-                {% for language in site.languages %}
-                  <li>
-                    <a id="set_lang_{{ language.locale }}" class="btn btn-sm set_{{ language.locale }}" data-locale="{{ language.locale }}">
-                      <img src="{{ language.flag | prepend: site.baseurl }}" height="16px" width="16px">
-                    </a>
-                  </li>
-                {% endfor %}
-                </ul>
-            </div>
+  <!-- ───────────── Identity column ───────────── -->
+  <header class="side" id="top">
+    <div class="side__inner">
+
+      <div class="id">
+        <img class="id__photo" src="assets/img/jinho-kang.jpg" width="160" height="160" alt="Portrait of Jinho Kang">
+        <div class="id__text">
+          <h1 class="id__name">Jinho Kang</h1>
+          <p class="id__role">Ph.D. student in Computer Science<br>The University of Texas at Dallas</p>
         </div>
-    </nav>
-</div>
-<div id="inSlider" class="carousel carousel-fade" data-ride="carousel">
-    <ol class="carousel-indicators">
-        <li data-target="#inSlider" data-slide-to="0" class="active"></li>
-        <li data-target="#inSlider" data-slide-to="1"></li>
-	<li data-target="#inSlider" data-slide-to="2"></li>
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        <div class="item active">
-            <div class="container">
-                <div class="carousel-caption">
-                </div>
-                <div class="carousel-image wow zoomIn">
-                    <!-- <img src="static/img/landing/laptop.png" alt="laptop"/> -->
-                </div>
-            </div>
-            <!-- Set background for slide in css -->
-            <div class="header-back one"></div>
+      </div>
+
+      <p class="thesis">Reliable and robust AI under <em>distribution shift</em>.</p>
+
+      <!-- Fig. 1 is drawn by assets/js/site.js from the items below (their data-themes). -->
+      <figure class="map" id="map" hidden>
+        <div class="map__field" id="map-field">
+          <div class="map__dots" id="map-dots" aria-hidden="true"></div>
         </div>
-        <div class="item">
-            <div class="container">
-                <div class="carousel-caption blank">
-                </div>
-            </div>
-            <!-- Set background for slide in css -->
-            <div class="header-back two"></div>
-        </div>
-        <div class="item">
-            <div class="container">
-                <div class="carousel-caption blank">
-                </div>
-            </div>
-            <!-- Set background for slide in css -->
-            <div class="header-back three"></div>
-        </div>
+        <figcaption class="map__caption">
+          <span class="map__fig">Fig. 1</span>
+          <span class="map__default">Publications <i class="key key--pub"></i> and projects <i class="key key--proj"></i> by research theme. Pick one to bring its work forward. <button class="map__clear" id="lens-clear" type="button" hidden>Show all</button></span>
+          <span class="map__readout" id="map-readout" aria-hidden="true"></span>
+        </figcaption>
+      </figure>
+
+      <nav class="toc" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>
+        <a href="#awards">Awards</a>
+      </nav>
+
+      <div class="contact">
+        <a class="contact__mail" href="mailto:jinho.kang@utdallas.edu">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="m3.5 7.5 8.5 6 8.5-6"/></svg>
+          jinho.kang@utdallas.edu
+        </a>
+        <ul class="contact__links">
+          <li><a href="https://scholar.google.com/citations?user=8FaxQowAAAAJ&amp;hl=en" rel="me noopener">Google Scholar</a></li>
+          <li><a href="https://github.com/bubble3jh" rel="me noopener">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/jinho-kang-68682a2a7/" rel="me noopener">LinkedIn</a></li>
+        </ul>
+        <button class="theme" id="theme-toggle" type="button" aria-label="Switch between light and dark theme" title="Switch theme">
+          <svg class="theme__sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+          <svg class="theme__moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.2A8 8 0 1 1 9.8 4a6.3 6.3 0 0 0 10.2 10.2Z"/></svg>
+        </button>
+      </div>
+
     </div>
-    <a class="left carousel-control" href="#inSlider" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#inSlider" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+  </header>
+
+  <!-- ───────────── Content column ───────────── -->
+  <main class="main" id="main">
+
+    <!-- About -->
+    <section class="sec sec--about" id="about" aria-labelledby="h-about">
+      <h2 class="sec__title" id="h-about">About</h2>
+      <div class="prose">
+        <p>I am a Ph.D. student in Computer Science at <strong>the University of Texas at Dallas</strong>, advised by Prof. <a href="https://yunhuiguo.github.io/">Yunhui Guo</a>. Prior to my Ph.D., I received my M.S. in Artificial Intelligence and B.S. in Computer Science from <strong>the University of Seoul</strong>. During my M.S., I was advised by Prof. <a href="https://scholar.google.com/citations?user=HWxRii4AAAAJ&amp;hl=en">Kyungwoo Song</a> at <strong>Yonsei University</strong> and Prof. <a href="https://scholar.google.com/citations?user=wc_MQkoAAAAJ&amp;hl=en">Jiyoung Jung</a> at <strong>the University of Seoul</strong>.</p>
+        <p>My research focuses on building reliable and robust artificial intelligence systems. I currently study how Vision-Language Models (VLMs) generalize and adapt in open-world, non-stationary, and distributionally shifting environments.</p>
+      </div>
+    </section>
+
+    <!-- Publications
+         To add one: copy an <li class="item"> block, give it a new id, and set
+         data-themes to one or two of: robustness, llm-vlm, generative, causality.
+         Fig. 1, the counts and the theme filter update on their own. -->
+    <section class="sec" id="publications" aria-labelledby="h-publications">
+      <h2 class="sec__title" id="h-publications">Publications <span class="sec__count" data-count="publication"></span></h2>
+      <p class="sec__note"><b class="me">Jinho Kang</b> is highlighted in each author list. <sup>*</sup> denotes equal contribution.</p>
+
+      <h3 class="group">Preprints</h3>
+      <ul class="items">
+        <li class="item" id="pub-cama" data-kind="publication" data-themes="robustness" data-short="Preprint">
+          <div class="item__meta"><span class="item__venue">Preprint</span></div>
+          <div class="item__body">
+            <h4 class="item__title">CAMA: Calibrated Anti-Collapse Marginal Alignment for Test-Time Adaptation of Vision–Language Models</h4>
+            <p class="item__authors"><b class="me">Jinho Kang</b>, Yunhui Guo</p>
+            <p class="item__where">Submitted to AI Top Conference 2027</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="group">Journal papers</h3>
+      <ul class="items">
+        <li class="item" id="pub-access" data-kind="publication" data-themes="generative" data-short="IEEE Access 2025">
+          <div class="item__meta"><span class="item__venue">IEEE Access</span><span class="item__year">2025</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Enhancing Global and Local Context Modeling in Time Series Through Multi-Step Transformer-Diffusion Interaction</h4>
+            <p class="item__authors">Dagyeong Na, <b class="me">Jinho Kang</b>, Byoungwoo Kang, Junseok Kwon</p>
+            <p class="item__where">IEEE Access, 2025 <span class="item__aside">SCIE, JCR 2024 IF=3.9</span></p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="generative">Generative</button>
+              <a class="lnk" href="https://doi.org/10.1109/ACCESS.2025.3598141">Paper</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-mqfp" data-kind="publication" data-themes="robustness" data-short="KBS 2025">
+          <div class="item__meta"><span class="item__venue">KBS</span><span class="item__year">2025</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Multi-Query Frequency Prompting for Physiological Signal Domain Adaptation</h4>
+            <p class="item__authors"><b class="me">Jinho Kang</b><sup>*</sup>, Hoyoon Byun<sup>*</sup>, Taero Kim, Jiyoung Jung, Kyungwoo Song</p>
+            <p class="item__where">Knowledge-Based Systems, 2025 <span class="item__aside">SCIE, JCR 2024 IF=7.6</span></p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <a class="lnk" href="https://doi.org/10.1016/j.knosys.2025.114082">Paper</a>
+              <a class="lnk" href="https://github.com/bubble3jh/MQFP">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-bgdiff" data-kind="publication" data-themes="robustness generative" data-short="IEEE Sensors J. 2024">
+          <div class="item__meta"><span class="item__venue">IEEE Sensors J.</span><span class="item__year">2024</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Few-Shot PPG Signal Generation via Guided Diffusion Models</h4>
+            <p class="item__authors"><b class="me">Jinho Kang</b>, Yongtaek Lim, Kyuhyung Kim, Hyeonjeong Lee, Kwang-Yong Kim, Minseong Kim, Jiyoung Jung, Kyungwoo Song</p>
+            <p class="item__where">IEEE Sensors Journal, 2024 <span class="item__aside">SCIE, JCR 2022 IF=4.3</span></p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <button class="tag" type="button" data-theme="generative">Generative</button>
+              <a class="lnk" href="https://doi.org/10.1109/JSEN.2024.3451453">Paper</a>
+              <a class="lnk" href="https://github.com/bubble3jh/BG-Diff">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-bibimbap" data-kind="publication" data-themes="robustness" data-short="Pattern Recognition 2024">
+          <div class="item__meta"><span class="item__venue">Pattern Recognit.</span><span class="item__year">2024</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Bibimbap: Pre-trained models ensemble for Domain Generalization</h4>
+            <p class="item__authors"><b class="me">Jinho Kang</b>, Taero Kim, Yewon Kim, Changdae Oh, Jiyoung Jung, Rakwoo Chang, Kyungwoo Song</p>
+            <p class="item__where">Pattern Recognition, 2024 <span class="item__aside">SCIE, JCR 2022 IF=8.0</span></p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <a class="lnk" href="https://doi.org/10.1016/j.patcog.2024.110391">Paper</a>
+              <a class="lnk" href="https://github.com/bubble3jh/Bibimbap">Code</a>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="group">Conference papers</h3>
+      <ul class="items">
+        <li class="item" id="pub-cbpe" data-kind="publication" data-themes="causality" data-short="SAC 2026">
+          <div class="item__meta"><span class="item__venue">SAC</span><span class="item__year">2026</span></div>
+          <div class="item__body">
+            <h4 class="item__title">CBPE: Causal-aware Blood Pressure Estimation with Multimodal Data</h4>
+            <p class="item__authors">Hoyoon Byun, Sumin Park, <b class="me">Jinho Kang</b>, Hyeonjeong Lee, Minseong Kim, Doosik Kim, Kwang-Yong Kim, Kyungwoo Song</p>
+            <p class="item__where">ACM Symposium on Applied Computing (SAC), 2026</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="causality">Causality</button>
+              <a class="lnk" href="https://doi.org/10.1145/3748522.3780020">Paper</a>
+              <a class="lnk" href="https://github.com/MLAI-Yonsei/CBPE">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-icdm" data-kind="publication" data-themes="robustness generative" data-short="ICDM 2025">
+          <div class="item__meta"><span class="item__venue">ICDM</span><span class="item__year">2025</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Towards Generalizable Time Series Forecasting via IB-Regularized Transformer-Diffusion</h4>
+            <p class="item__authors">Dagyeong Na, <b class="me">Jinho Kang</b>, Junseok Kwon</p>
+            <p class="item__where">IEEE International Conference on Data Mining (ICDM), 2025 <span class="item__aside">Short paper</span></p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <button class="tag" type="button" data-theme="generative">Generative</button>
+              <a class="lnk" href="https://doi.org/10.1109/ICDM65498.2025.00153">Paper</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-cevt" data-kind="publication" data-themes="causality" data-short="CIKM 2025">
+          <div class="item__meta"><span class="item__venue">CIKM</span><span class="item__year">2025</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Causal Effect Variational Transformer for Public Health Measures and COVID-19 Infection Cluster Analysis</h4>
+            <p class="item__authors"><b class="me">Jinho Kang</b>, Sungjun Lim, Hojun Park, Jiyoung Jung, Jaehun Jung, Kyungwoo Song</p>
+            <p class="item__where">ACM International Conference on Information and Knowledge Management (CIKM), 2025</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="causality">Causality</button>
+              <a class="lnk" href="https://doi.org/10.1145/3746252.3761040">Paper</a>
+              <a class="lnk" href="https://github.com/bubble3jh/CEVT">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-fpbma" data-kind="publication" data-themes="robustness" data-short="UAI 2025">
+          <div class="item__meta"><span class="item__venue">UAI</span><span class="item__year">2025</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Flat Posterior Does Matter For Bayesian Model Averaging</h4>
+            <p class="item__authors">Sungjun Lim, Jeyoon Yeom, Sooyon Kim, Hoyoon Byun, <b class="me">Jinho Kang</b>, Yohan Jung, Jiyoung Jung, Kyungwoo Song</p>
+            <p class="item__where">Conference on Uncertainty in Artificial Intelligence (UAI), 2025</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <a class="lnk" href="https://proceedings.mlr.press/v286/lim25a.html">Paper</a>
+              <a class="lnk" href="https://arxiv.org/abs/2406.15664">arXiv</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="pub-stee" data-kind="publication" data-themes="causality" data-short="IJCAI AI4TS 2024">
+          <div class="item__meta"><span class="item__venue">IJCAI AI4TS</span><span class="item__year">2024</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Sequential Treatment Effect Estimation with Variational Transformers: Application to COVID-19 Infection Clusters</h4>
+            <p class="item__authors"><b class="me">Jinho Kang</b>, Sungjun Lim, Hojun Park, Jaehun Jung, Jiyoung Jung, Kyungwoo Song</p>
+            <p class="item__where">IJCAI Workshop on AI for Time Series Analysis (AI4TS), 2024</p>
+            <p class="item__award"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3.2 2.6 5.6 6.1.7-4.5 4.2 1.2 6-5.4-3-5.4 3 1.2-6-4.5-4.2 6.1-.7L12 3.2Z"/></svg>Best Paper Honorable Mention</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="causality">Causality</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Projects -->
+    <section class="sec" id="projects" aria-labelledby="h-projects">
+      <h2 class="sec__title" id="h-projects">Projects <span class="sec__count" data-count="project"></span></h2>
+
+      <h3 class="group">Ongoing</h3>
+      <ul class="items">
+        <li class="item" id="proj-ostta" data-kind="project" data-themes="robustness llm-vlm" data-short="Project, since Sep 2026">
+          <div class="item__meta"><span class="item__date">Since Sep 2026</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Open-Set Test-Time Adaptation of Vision–Language Models for Object Detection</h4>
+            <p class="item__desc">Source-free adaptation for reliable detection under distribution shift, preserving known-class recognition while localizing unfamiliar objects and explicitly distinguishing them from known categories and background.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <button class="tag" type="button" data-theme="llm-vlm">VLM</button>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-videoqa" data-kind="project" data-themes="robustness llm-vlm" data-short="Project, since Oct 2026">
+          <div class="item__meta"><span class="item__date">Since Oct 2026</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Continual Learning for Long-Sequence Video QA with Hybrid Mamba</h4>
+            <p class="item__desc">Robust continual learning for long-sequence video QA, using the context-retention capabilities of hybrid Mamba architectures to preserve long-range temporal dependencies and mitigate forgetting across tasks.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <button class="tag" type="button" data-theme="llm-vlm">VLM</button>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-memory" data-kind="project" data-themes="llm-vlm" data-short="Project, since Aug 2026">
+          <div class="item__meta"><span class="item__date">Since Aug 2026</span></div>
+          <div class="item__body">
+            <h4 class="item__title">Psychological Memory for Long-Term Conversational Agents</h4>
+            <p class="item__desc">Agentic construction of human-grounded datasets and benchmarks to evaluate how long-term conversational agents integrate individual traits and evolving psychological states into personalized, supportive responses.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="llm-vlm">LLM</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <h3 class="group">Past</h3>
+      <ul class="items">
+        <li class="item" id="proj-fmea" data-kind="project" data-themes="llm-vlm" data-short="Project, 2025">
+          <div class="item__meta"><span class="item__date"><span>Feb 2025 –</span> <span>Aug 2025</span></span></div>
+          <div class="item__body">
+            <h4 class="item__title">Failure-Aware Causal Modeling through FMEA-Driven LLM Adaptation</h4>
+            <p class="item__desc">Leveraging domain-specific technical documents from the automotive industry to pretrain and adapt LLMs for generating accurate, component-targeted FMEA scenarios via causal reasoning.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="llm-vlm">LLM</button>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-ppg-causal" data-kind="project" data-themes="causality" data-short="Project, 2024">
+          <div class="item__meta"><span class="item__date"><span>May 2024 –</span> <span>Oct 2024</span></span></div>
+          <div class="item__body">
+            <h4 class="item__title">Causal Discovery in Photoplethysmography Attributes</h4>
+            <p class="item__desc">Uncovering causal relationships among PPG signals and diverse physiological attributes (e.g., race, age) to enable robust and accurate arterial blood pressure (ABP) estimation.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="causality">Causality</button>
+              <a class="lnk" href="https://github.com/MLAI-Yonsei/CBPE">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-aircraft" data-kind="project" data-themes="generative" data-short="Project, 2024">
+          <div class="item__meta"><span class="item__date"><span>Feb 2024 –</span> <span>May 2024</span></span></div>
+          <div class="item__body">
+            <h4 class="item__title">Conditioned Generation for Aircraft Trajectory Data</h4>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="generative">Generative</button>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-ppg-dg" data-kind="project" data-themes="robustness generative" data-short="Project, 2023–2024">
+          <div class="item__meta"><span class="item__date"><span>May 2023 –</span> <span>Feb 2024</span></span></div>
+          <div class="item__body">
+            <h4 class="item__title">Domain Generalization via Synthetic Photoplethysmography Data Generation</h4>
+            <p class="item__desc">Address data imbalance in medical datasets by using regressor-guided diffusion models to generate high-quality, diverse PPG signals, significantly enhancing Arterial Blood Pressure predictions.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+              <button class="tag" type="button" data-theme="generative">Generative</button>
+              <a class="lnk" href="https://github.com/bubble3jh/BG-Diff">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-covid" data-kind="project" data-themes="causality" data-short="Project, 2023–2024">
+          <div class="item__meta"><span class="item__date"><span>Mar 2023 –</span> <span>Feb 2024</span></span></div>
+          <div class="item__body">
+            <h4 class="item__title">Causal Prediction of COVID-19 Infection Cluster Dynamics</h4>
+            <p class="item__desc">Developed a machine learning model using a Transformer to predict the infection spread and duration of coronavirus clusters by embedding and processing both cluster and patient information.</p>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="causality">Causality</button>
+              <a class="lnk" href="https://github.com/bubble3jh/CEVT">Code</a>
+            </div>
+          </div>
+        </li>
+        <li class="item" id="proj-chem" data-kind="project" data-themes="robustness" data-short="Project, 2022–2023">
+          <div class="item__meta"><span class="item__date"><span>Jul 2022 –</span> <span>Feb 2023</span></span></div>
+          <div class="item__body">
+            <h4 class="item__title">Robust Ensemble Learning for Chemical Graph Data</h4>
+            <div class="item__foot">
+              <button class="tag" type="button" data-theme="robustness">Robustness</button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Experience -->
+    <section class="sec" id="experience" aria-labelledby="h-experience">
+      <h2 class="sec__title" id="h-experience">Experience</h2>
+      <ul class="items">
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Aug 2025 –</span> <span>Dec 2025</span></span></div>
+          <div class="item__body">
+            <h3 class="item__title">Associate Researcher</h3>
+            <p class="item__org">Machine Learning and Artificial Intelligence Lab, Yonsei University <span class="item__place">Seoul, South Korea</span></p>
+          </div>
+        </li>
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Aug 2024 –</span> <span>Feb 2025</span></span></div>
+          <div class="item__body">
+            <h3 class="item__title">Visiting Scholar</h3>
+            <p class="item__org">School of Computer Science, Carnegie Mellon University <span class="item__place">Pittsburgh, PA, USA</span></p>
+            <p class="item__desc">Supported by IITP (Institute for Information &amp; Communication Technology Planning &amp; Evaluation).</p>
+          </div>
+        </li>
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Apr 2023 –</span> <span>Aug 2025</span></span></div>
+          <div class="item__body">
+            <h3 class="item__title">Graduate Researcher</h3>
+            <p class="item__org">Machine Learning and Artificial Intelligence Lab, University of Seoul <span class="item__place">Seoul, South Korea</span></p>
+          </div>
+        </li>
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Sep 2021 –</span> <span>Apr 2023</span></span></div>
+          <div class="item__body">
+            <h3 class="item__title">Undergraduate Researcher</h3>
+            <p class="item__org">Machine Learning and Artificial Intelligence Lab, University of Seoul <span class="item__place">Seoul, South Korea</span></p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Education -->
+    <section class="sec" id="education" aria-labelledby="h-education">
+      <h2 class="sec__title" id="h-education">Education</h2>
+      <ul class="items">
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Jan 2026 –</span> <span>Dec 2030</span></span><span class="item__year">expected</span></div>
+          <div class="item__body">
+            <h3 class="item__title">Ph.D. in Computer Science</h3>
+            <p class="item__org">The University of Texas at Dallas <span class="item__place">Richardson, TX, USA</span></p>
+            <p class="item__desc">Advisor: <a href="https://yunhuiguo.github.io/">Yunhui Guo</a></p>
+          </div>
+        </li>
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Mar 2023 –</span> <span>Aug 2025</span></span></div>
+          <div class="item__body">
+            <h3 class="item__title">M.S. in Artificial Intelligence</h3>
+            <p class="item__org">University of Seoul <span class="item__place">Seoul, South Korea</span></p>
+            <p class="item__desc">Advisor: Jiyoung Jung. Co-advisor: Kyungwoo Song (Yonsei University)</p>
+          </div>
+        </li>
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date"><span>Mar 2016 –</span> <span>Feb 2023</span></span></div>
+          <div class="item__body">
+            <h3 class="item__title">B.S. in Computer Science</h3>
+            <p class="item__org">University of Seoul <span class="item__place">Seoul, South Korea</span></p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Awards -->
+    <section class="sec" id="awards" aria-labelledby="h-awards">
+      <h2 class="sec__title" id="h-awards">Awards and honors</h2>
+      <ul class="items">
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date">Aug 2024</span></div>
+          <div class="item__body">
+            <h3 class="item__title">Best Paper Honorable Mention</h3>
+            <p class="item__org">IJCAI Workshop on AI for Time Series Analysis (AI4TS)</p>
+            <p class="item__desc">For “Sequential Treatment Effect Estimation with Variational Transformers”.</p>
+          </div>
+        </li>
+        <li class="item item--plain">
+          <div class="item__meta"><span class="item__date">Jul 2023</span></div>
+          <div class="item__body">
+            <h3 class="item__title">Summer Academic Paper Presentation Conference</h3>
+            <p class="item__org">Korean Data Analysis Society (KDAS)</p>
+            <p class="item__desc">For “Bibimbap: Pre-trained models ensemble for Domain Generalization”.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="foot">
+      <p>© 2026 Jinho Kang · DEIL @ The University of Texas at Dallas</p>
+      <p><a href="#top">Back to top</a></p>
+    </footer>
+
+  </main>
 </div>
 
-{% for section in site.sections %}
-  {% assign loopindex = forloop.index | modulo: 2 %}
-  <section id="{{ section.id }}" class="features {% if loopindex != 1 %} gray-section {% endif %} {{ section.css }}" style="margin-top: 0px;">
-    {% include sections/{{section.tpl}} %}
-  </section>
-{% endfor %}
+<script src="assets/js/site.js" defer></script>
+</body>
+</html>

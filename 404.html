@@ -1,34 +1,30 @@
----
-layout: null
-title: 404
-permalink: /404.html
----
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" class="no-js">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 Error</title>
-    <link href="{{"bower_components/bootstrap/dist/css/bootstrap.min.css" | prepend: site.baseurl }}" rel="stylesheet">
-    <link href="{{"bower_components/components-font-awesome/css/font-awesome.min.css"| prepend: site.baseurl }}" rel="stylesheet">
-    <link href="{{"bower_components/animate.css/animate.min.css"| prepend: site.baseurl }}" rel="stylesheet">
-    <link href="{{"static/css/style.min.css"| prepend: site.baseurl }}" rel="stylesheet">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page not found · Jinho Kang</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/assets/css/style.css">
+<script>
+(function () {
+  var d = document.documentElement;
+  try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') d.setAttribute('data-theme', t); } catch (e) {}
+})();
+</script>
+<style>
+.lost { min-height: 100vh; min-height: 100dvh; display: grid; place-content: center; gap: 1rem; padding: 2rem; text-align: left; }
+.lost h1 { font: 400 clamp(3rem, 9vw, 5rem)/.95 var(--font-display); letter-spacing: -.015em; }
+.lost p { color: var(--ink-2); font-size: 1.05rem; max-width: 30rem; }
+.lost .code { font: 500 .78rem/1 var(--font-mono); letter-spacing: .08em; color: var(--muted); }
+</style>
 </head>
-<body class="gray-bg">
-    <div class="middle-box text-center animated fadeInDown">
-        <h1>404</h1>
-        <h3 class="font-bold">Page Not Found</h3>
-        <div class="error-desc">
-            <p>
-            Sorry, but the page you are looking for has not been found. Try checking the URL for error, then hit the refresh button on your browser or try found something else in my website.
-            </p>
-            <div>
-                <a class="btn btn-primary" href="/">Home</a>
-            </div>
-        </div>
-    </div>
-    <!-- Mainly scripts -->
-    <script src="{{"bower_components/jquery/dist/jquery.min.js"| prepend: site.baseurl }}"></script>
-    <script src="{{"bower_components/bootstrap/dist/js/bootstrap.min.js"| prepend: site.baseurl }}"></script>
+<body>
+<main class="lost">
+  <p class="code">404</p>
+  <h1>This page is not here.</h1>
+  <p>The address may have changed. Everything on this site lives on the <a href="/">home page</a>.</p>
+</main>
 </body>
 </html>

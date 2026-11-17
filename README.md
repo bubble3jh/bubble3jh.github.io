@@ -1,27 +1,26 @@
 # bubble3jh.github.io
 
-Source of my personal homepage: **https://bubble3jh.github.io**
+Source of my homepage: **https://bubble3jh.github.io**
 
-A single-page site built with [Jekyll](https://jekyllrb.com) and served by GitHub Pages from the `main` branch.
+Plain HTML, CSS and a little JavaScript. There is no build step: GitHub Pages serves the files as they are.
 
-## Where things live
+## Editing
 
-| Content | File |
-|---|---|
-| Name, links, section order | `_config.yml` |
-| About | `_includes/sections/about.html` |
-| Career | `_data/careers.yml`, `_includes/sections/career.html` |
-| Publications | `_includes/sections/publications.html` |
-| Projects | `_data/projects.yml`, `_includes/sections/projects.html` |
-| Awards | `_includes/sections/awards.html` |
-| Images | `static/img/landing/` |
+All content lives in `index.html`.
 
-## Local preview
+- **A publication or project:** copy one `<li class="item">` block, give it a new `id`, and set `data-themes` to one
+  or two of `robustness`, `llm-vlm`, `generative`, `causality`. The figure in the side column, the counts and the
+  theme filter update on their own.
+- **Colors and type:** the `:root` block at the top of `assets/css/style.css`.
+
+## Preview
 
 ```bash
-jekyll serve
+python3 -m http.server
 ```
 
-## Credits
+Then open http://localhost:8000.
 
-Based on the résumé template of [mrastgoo/mrastgoo.github.io](https://github.com/mrastgoo/mrastgoo.github.io), released under the MIT License (see `LICENSE`).
+## Fonts
+
+Instrument Serif, Geist and Geist Mono are self-hosted under the SIL Open Font License (see `assets/fonts/`).
