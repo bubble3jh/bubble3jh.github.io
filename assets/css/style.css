@@ -26,6 +26,7 @@
   --generative: #0d8560;
   --causality: #7a49d6;
   --award: #a87406;
+  --partner: #2f6b7c;   /* the partner of a past project: a slate teal outside the theme hues */
 
   --accent: var(--ink);
 
@@ -52,6 +53,7 @@
     --generative: #4dd2a2;
     --causality: #b89dff;
     --award: #e7b84a;
+    --partner: #83c2d3;
     color-scheme: dark;
   }
 }
@@ -70,6 +72,7 @@
   --generative: #4dd2a2;
   --causality: #b89dff;
   --award: #e7b84a;
+  --partner: #83c2d3;
   color-scheme: dark;
 }
 
@@ -419,10 +422,10 @@ html[data-lens] .map__theme:not(.is-on) { opacity: .5; }
 .card { display: flex; flex-direction: column; padding: 1.05rem 1.2rem 1.1rem; border: 1px solid var(--line); border-radius: 1rem; background: var(--card); }
 .card:hover, .card.is-linked, .card:target { border-color: color-mix(in srgb, var(--c) 60%, var(--line)); transform: translateY(-1px); }
 .card__top { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .4rem .75rem; margin-bottom: .6rem; color: var(--muted); font: 450 .76rem/1.3 var(--font-mono); font-variant-numeric: tabular-nums; }
-/* a past project: its dates, then its partner on a line of its own, in the body face so the two read apart */
+/* a past project: its dates, then its partner on a line of its own, in its own colour and the body face so the two read apart */
 .card__top:has(.card__org) { flex-direction: column; align-items: flex-start; gap: .3rem; }
-.card__org { color: var(--ink); font: 560 .86rem/1.3 var(--font-body); letter-spacing: -.004em; }
-.card__with { color: var(--muted); font-weight: 450; }
+.card__org { color: var(--partner); font: italic 520 .86rem/1.3 var(--font-body); letter-spacing: -.004em; }
+.card__with { font-style: normal; }
 .card .item__foot { margin-top: auto; padding-top: .8rem; }
 .card--live { padding: 1.15rem 1.3rem 1.25rem; border-left: 3px solid var(--c); }
 .card--live:hover, .card--live.is-linked, .card--live:target { border-left-color: var(--c); }
